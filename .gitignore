@@ -1,5 +1,5 @@
 /.quarto/
-*.html
 *.pdf
 *_files/
+_posts
 .Rproj.user
