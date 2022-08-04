@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "EPsy 8264"
+  navbar:
+    background: "#0F2E3D"
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Schedule"
+        file: schedule.qmd
+      - sidebar:assignments
+      - text: "Instructor"
+        file: about.qmd
+        
+  sidebar:
+    - id: assignments
+      title: "Assignments"
+      style: "docked"
+      background: light
+      collapse-level: 1
+      contents: 
+        - assignments.qmd
+        - assignment-01.qmd
+        - assignment-02.qmd
+        - assignment-03.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: ["assets/style.css"]
+    toc: true
+    header-includes: |
+      <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
+    sidebar: false
+
+
+
