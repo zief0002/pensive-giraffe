@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.545">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-07-28">
+
+<title>EPsy 8264 - Assignment 05</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body class="nav-sidebar nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">EPsy 8264</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">Schedule</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="../assignments.html">
+ <span class="dropdown-text">Assignment Due Dates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-01.html">
+ <span class="dropdown-text">Assignment 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-02.html">
+ <span class="dropdown-text">Assignment 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-03.html">
+ <span class="dropdown-text">Assignment 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-04.html">
+ <span class="dropdown-text">Assignment 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-05.html">
+ <span class="dropdown-text">Assignment 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-06.html">
+ <span class="dropdown-text">Assignment 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-07.html">
+ <span class="dropdown-text">Assignment 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-08.html">
+ <span class="dropdown-text">Assignment 08</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../data.html">Data</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">Instructor</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
+  <li><a href="#initial-model" id="toc-initial-model" class="nav-link" data-scroll-target="#initial-model">Initial Model</a></li>
+  <li><a href="#principal-components-analysis" id="toc-principal-components-analysis" class="nav-link" data-scroll-target="#principal-components-analysis">Principal Components Analysis</a></li>
+  <li><a href="#revisit-the-regression-analysis" id="toc-revisit-the-regression-analysis" class="nav-link" data-scroll-target="#revisit-the-regression-analysis">Revisit the Regression Analysis</a></li>
+  <li><a href="#influential-values" id="toc-influential-values" class="nav-link" data-scroll-target="#influential-values">Influential Values</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment 05</h1>
+<p class="subtitle lead">Collinearity and Dimension Reduction</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 28, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>In 2018, Iowa attorneys rated the 64 judges who were up for election on 12 different attributes in a Judicial Performance Review. They also indicated whether or not the judge should be retained. In this assignment, you are going to examine whether those ratings we can explain variation in the percentage of attorneys who endorsed retention using the data provided in the file <em>iowa-judges.csv</em>.</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/iowa-judges.csv">[CSV]</a></li>
+<li><a href="../codebooks/iowa-judges.html">[Data Codebook]</a></li>
+</ul>
+<p><br></p>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<p>Submit a printed document of your responses to the following questions. Please adhere to the following guidelines for further formatting your assignment:</p>
+<ul>
+<li>All plots should be resized so that they do not take up more room than necessary.</li>
+<li>All figures and tables should have a name (e.g., Figure 1) <em>and</em> an appropriate caption.</li>
+</ul>
+<p>In questions that ask you to “use matrix algebra” to solve the problem, you can either show your syntax and output from carrying out the matrix operations, or you can use Equation Editor to input the matrices involved in your calculations.</p>
+<p>This assignment is worth 22 points.</p>
+<p><br></p>
+</section>
+<section id="exploratory-analysis" class="level1">
+<h1>Exploratory Analysis</h1>
+<ol type="1">
+<li><p>Compute and report the correlation matrix of the 12 predictors.</p></li>
+<li><p>Based on the correlations, comment on whether there may be any potential collinearity problems. Explain.</p></li>
+<li><p>Compute and report the eigenvalues for the correlation matrix you created in Question 1.</p></li>
+<li><p>Based on the eigenvalues, comment on whether there may be any potential collinearity problems. Explain.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="initial-model" class="level1">
+<h1>Initial Model</h1>
+<p>Since the ratings are assigned based on different numbers of attorneys, use a weight equal to the number of respondents to fit a WLS model that regresses the standardized retention percentage on the 12 standardized predictors.</p>
+<ol start="5" type="1">
+<li><p>Report the coefficient-level output, including the estimated coefficients (beta weights), standard errors, <em>t</em>-values, and <em>p</em>-values.</p></li>
+<li><p>Based on the VIF values, comment on whether there may be any potential collinearity problems. Explain.</p></li>
+<li><p>Using the predictor with the largest VIF value, use the VIF value to indicate how the standard error for this predictor will be impacted by the collinearity.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="principal-components-analysis" class="level1">
+<h1>Principal Components Analysis</h1>
+<p>In this section you are going to carry out the principal components analysis by using singular value decomposition on <em>the correlation matrix of the predictors</em>.</p>
+<ol start="8" type="1">
+<li>Compute the composite score based on the first principal component for the first observation (Judge John J. Bauercamper). Show your work.</li>
+</ol>
+<p>Read the section on scree plots (Section 4) <a href="https://medium.com/@bioturing/how-to-read-pca-biplots-and-scree-plots-186246aae063">in this web article</a>.</p>
+<ol start="9" type="1">
+<li><p>Create a scree plot showing the eigenvalues for the 12 principal components from the previous analysis.</p></li>
+<li><p>Using the “elbow criterion”, how many principal components are sufficient to describe the data? Explain by referring to your scree plot.</p></li>
+<li><p>Using the “Kaiser criterion”, how many principal components are sufficient to describe the data? Explain.</p></li>
+<li><p>Using the “80% proportion of variance criterion”, how many principal components are sufficient to describe the data? Explain.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="revisit-the-regression-analysis" class="level1">
+<h1>Revisit the Regression Analysis</h1>
+<p>The evidence from the previous section suggests that the first two principal components are sufficient to explain the variation in the predictor space.</p>
+<ol start="13" type="1">
+<li><p>By examining the pattern of correlations (size and directions) in the first two principal components, identify the construct defined by the composites of these two components. Explain.</p></li>
+<li><p>Fit the regression analysis using the first two principal components as predictors of retention percentage. (Don’t forget your weights.) Create and report the plot of the residuals vs.&nbsp;fitted values. What does this suggest about the validity of the linearity assumption?</p></li>
+<li><p>Again, fit the same regression model using the first two principal components as predictors of retention percentage, but this time also include a quadratic effect of the first principal component. Create and report the plot of the residuals vs.&nbsp;fitted values. What does this suggest about the validity of the linearity assumption?</p></li>
+<li><p>Interpret the effect of the first principal component from this model.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="influential-values" class="level1">
+<h1>Influential Values</h1>
+<ol start="17" type="1">
+<li><p>Based on Cook’s <em>D</em>, identify the name of any judges (and their Cook’s <em>D</em> value) that are influential observations.</p></li>
+<li><p>Remove any influential observations identified in Question 17. Re-fit the same model. Based on comparing the model- and coefficient-level output for this model and the model which included all the observations, comment on how these observations were influencing the <span class="math inline">\(R^2\)</span> value, the estimate of the quadratic effect of PC1, and the effect of PC2.</p></li>
+</ol>
+<p><br></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

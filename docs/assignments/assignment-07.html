@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.545">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-07-28">
+
+<title>EPsy 8264 - Assignment 07</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body class="nav-sidebar nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">EPsy 8264</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">Schedule</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="../assignments.html">
+ <span class="dropdown-text">Assignment Due Dates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-01.html">
+ <span class="dropdown-text">Assignment 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-02.html">
+ <span class="dropdown-text">Assignment 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-03.html">
+ <span class="dropdown-text">Assignment 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-04.html">
+ <span class="dropdown-text">Assignment 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-05.html">
+ <span class="dropdown-text">Assignment 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-06.html">
+ <span class="dropdown-text">Assignment 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-07.html">
+ <span class="dropdown-text">Assignment 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assignment-08.html">
+ <span class="dropdown-text">Assignment 08</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../data.html">Data</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">Instructor</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#part-i-minneapolis-violent-crime" id="toc-part-i-minneapolis-violent-crime" class="nav-link" data-scroll-target="#part-i-minneapolis-violent-crime">Part I: Minneapolis Violent Crime</a>
+  <ul class="collapse">
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#use-p-value-methods-for-model-selection" id="toc-use-p-value-methods-for-model-selection" class="nav-link" data-scroll-target="#use-p-value-methods-for-model-selection">Use p-Value methods for Model Selection</a></li>
+  <li><a href="#using-loocv-for-model-selection" id="toc-using-loocv-for-model-selection" class="nav-link" data-scroll-target="#using-loocv-for-model-selection">Using LOOCV for Model Selection</a></li>
+  </ul></li>
+  <li><a href="#part-ii-course-evaluations" id="toc-part-ii-course-evaluations" class="nav-link" data-scroll-target="#part-ii-course-evaluations">Part II: Course Evaluations</a>
+  <ul class="collapse">
+  <li><a href="#preparation-1" id="toc-preparation-1" class="nav-link" data-scroll-target="#preparation-1">Preparation</a></li>
+  <li><a href="#description-1" id="toc-description-1" class="nav-link" data-scroll-target="#description-1">Description</a></li>
+  <li><a href="#using-k-fold-cross-validation-to-estimate-r2" id="toc-using-k-fold-cross-validation-to-estimate-r2" class="nav-link" data-scroll-target="#using-k-fold-cross-validation-to-estimate-r2">Using k-Fold Cross-Validation to Estimate <span class="math inline">\(R^2\)</span></a></li>
+  </ul></li>
+  <li><a href="#part-iii-credit-balance" id="toc-part-iii-credit-balance" class="nav-link" data-scroll-target="#part-iii-credit-balance">Part III: Credit Balance</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment 07</h1>
+<p class="subtitle lead">Cross-Validation</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 28, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<p>Submit a printed document of your responses to the following questions. Please adhere to the following guidelines for further formatting your assignment:</p>
+<ul>
+<li>All plots should be resized so that they do not take up more room than necessary.</li>
+<li>All figures and tables should have a name (e.g., Figure 1) <em>and</em> an appropriate caption.</li>
+</ul>
+<p>In questions that ask you to “use matrix algebra” to solve the problem, you can either show your syntax and output from carrying out the matrix operations, or you can use Equation Editor to input the matrices involved in your calculations.</p>
+<p>This assignment is worth 20 points.</p>
+<p><br></p>
+</section>
+<section id="part-i-minneapolis-violent-crime" class="level1">
+<h1>Part I: Minneapolis Violent Crime</h1>
+<p>For the first part of this assignment, you will use the data provided in the file <em>mpls-violent-crime.csv</em> to build a model that examines the trend in violent crime rate over time.</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/mpls-violent-crime.csv">[CSV]</a></li>
+<li><a href="../codebooks/mpls-violent-crime.html">[Data Codebook]</a></li>
+</ul>
+<p><br></p>
+<section id="preparation" class="level3">
+<h3 class="anchored" data-anchor-id="preparation">Preparation</h3>
+<p>Create a variable that indicates the number of years since 2000. Use this variable in all analyses for Part I rather than the <code>year</code> variable.</p>
+<p><br></p>
+</section>
+<section id="description" class="level3">
+<h3 class="anchored" data-anchor-id="description">Description</h3>
+<ol type="1">
+<li><p>Create a scatterplot showing the violent crime rate as a function of time.</p></li>
+<li><p>Based on the plot, describe the trend in violent crime rate over time.</p></li>
+<li><p>If you were going to fit a polynomial model to these data, what degree polynomial would you fit? Explain.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="use-p-value-methods-for-model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="use-p-value-methods-for-model-selection">Use p-Value methods for Model Selection</h3>
+<ol start="4" type="1">
+<li><p>Fit a series of polynomial models starting with a linear model, and then models that also include higher order polynomials that allow you to evaluate your response to Question #3. Be sure to fit models up to degree <span class="math inline">\(k+1\)</span>, where <span class="math inline">\(k\)</span> is the degree you hypothesized in Question #3. Analyze each of the polynomial terms (including the linear term) by using a series of nested <em>F</em>-tests. Report these results in an ANOVA table. (Note: If you need a refresher on fitting polynomial models and carrying out a nested <em>F</em>-test, see the <a href="https://zief0002.github.io/epsy-8252/#schedule">Polynomial Regression notes</a> from EPsy 8252.)</p></li>
+<li><p>Based on these results, which polynomial model would you adopt? Explain.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="using-loocv-for-model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="using-loocv-for-model-selection">Using LOOCV for Model Selection</h3>
+<p>In this section of the assignment, you are going to use LOOCV to evaluate the MSE for the same set of polynomial models you evaluated in Question #4.</p>
+<ol start="6" type="1">
+<li><p>Write and include syntax that will carry out the LOOCV.</p></li>
+<li><p>Report the cross-validated MSE for each of the models in your set of polynomial models.</p></li>
+<li><p>Based on these results, which degree polynomial model should be adopted? Explain.</p></li>
+</ol>
+<p><br></p>
+</section>
+</section>
+<section id="part-ii-course-evaluations" class="level1">
+<h1>Part II: Course Evaluations</h1>
+<p>For the second part of this assignment, you will use the data provided in the file <em>evaluations.csv</em> to build a model that predicts variation in course evaluation scores.</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/evaluations.csv">[CSV]</a></li>
+<li><a href="../codebooks/evaluations.html">[Data Codebook]</a></li>
+</ul>
+<p><br></p>
+<section id="preparation-1" class="level3">
+<h3 class="anchored" data-anchor-id="preparation-1">Preparation</h3>
+<p>Begin by fitting a model that predicts average course evaluation score using the following predictors: beauty, number of courses for which the professor has evaluations, whether the professor is a native English speaker, and whether the professor is female.</p>
+<p><br></p>
+</section>
+<section id="description-1" class="level3">
+<h3 class="anchored" data-anchor-id="description-1">Description</h3>
+<ol start="9" type="1">
+<li><p>Using average course evaluation scores (<em>y</em>), compute the total sum of squares (SST). Show your work.</p></li>
+<li><p>Using average course evaluation scores (<em>y</em>) and the predicted values from the model (<span class="math inline">\(\hat{y}\)</span>), compute the sum of squared errors (SSE). Show your work.</p></li>
+<li><p>Compute the model <span class="math inline">\(R^2\)</span> value using the formula: <span class="math inline">\(1 - \frac{\mathrm{SSE}}{\mathrm{SST}}\)</span>.</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="using-k-fold-cross-validation-to-estimate-r2" class="level3">
+<h3 class="anchored" data-anchor-id="using-k-fold-cross-validation-to-estimate-r2">Using k-Fold Cross-Validation to Estimate <span class="math inline">\(R^2\)</span></h3>
+<p>As we know, the estimate for <span class="math inline">\(R^2\)</span> is biased. We can obtain a better estimate of <span class="math inline">\(R^2\)</span> by using cross-validation. You will use 5-fold cross-validation to estimate the <span class="math inline">\(R^2\)</span> value. The algorithm for this will be:</p>
+<ul>
+<li>Randomly divide the evaluations data into 5 folds.</li>
+<li>Hold out 1 fold as your validation data and use the remaining 4 folds as your training data.
+<ul>
+<li>Fit the model to the training data.</li>
+<li>Use the estimated coefficients from those fits to compute <span class="math inline">\(\hat{y}\)</span> values using the validation data.</li>
+<li>Compute the SST and SSE values for the validation data, and use those to compute <span class="math inline">\(R^2\)</span> based on the formula <span class="math inline">\(1 - \frac{\mathrm{SSE}}{\mathrm{SST}}\)</span>. (Note that sometimes the <span class="math inline">\(R^2\)</span> may be negative when we compte it in this manner.)</li>
+</ul></li>
+<li>Repeat for each fold.</li>
+<li>Compute the cross-validated <span class="math inline">\(R^2\)</span> by finding the mean of the five <span class="math inline">\(R^2\)</span> from the cross-validations.</li>
+</ul>
+<ol start="12" type="1">
+<li><p>Write and include syntax that will carry out the 5-fold cross-validation. In this syntax use <code>set.seed(1000)</code> so that you and the answer key will get the same results. (This website may be useful in using the <strong>purrr</strong> package to obtain the <em>y</em>- and <span class="math inline">\(\hat{y}\)</span>-values in order to compute the SST and SSE values: https://drsimonj.svbtle.com/k-fold-cross-validation-with-modelr-and-broom)</p></li>
+<li><p>Report the five <span class="math inline">\(R^2\)</span> values from your analysis and the cross-validated <span class="math inline">\(R^2\)</span> value.</p></li>
+<li><p>How does this value compare to the <span class="math inline">\(R^2\)</span> value you computed in Question #11, based on the data.</p></li>
+<li><p>Explain why the cross-validated estimate of <span class="math inline">\(R^2\)</span> is a better estimate than the data-based <span class="math inline">\(R^2\)</span>.</p></li>
+</ol>
+<p><br></p>
+</section>
+</section>
+<section id="part-iii-credit-balance" class="level1">
+<h1>Part III: Credit Balance</h1>
+<p>For the third part of this assignment, you will again use the file the data provided in the file <em>credit.csv</em> to build a model that predicts customers’ credit card balance. Do not forget to standardize all the variables.</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/credit.csv">[CSV]</a></li>
+<li><a href="../codebooks/credit.html">[Data Codebook]</a></li>
+</ul>
+<p><br></p>
+<ol start="16" type="1">
+<li><p>Use the <code>lm.ridge()</code> function to fit the same sequence of <span class="math inline">\(\lambda\)</span> values you used in Question #7 from Assignment 6. Running <code>select()</code> on this output, provides <span class="math inline">\(\lambda\)</span> values based on different criteria. Report the <span class="math inline">\(\lambda\)</span> value associated with the generalized cross-validation (GCV) metric.</p></li>
+<li><p>Re-do Question #7 from Assignment 6, except this time, select the optimal <span class="math inline">\(\lambda\)</span> value based on using the AICc. How does this compare to the <span class="math inline">\(\lambda\)</span> value you found using the GCV metric from the previous question? (Show your syntax.)</p></li>
+<li><p>Compute the coefficients, standard errors based on the ridge regression model based on the <span class="math inline">\(\lambda\)</span> value you identified in Question #17. Also compute the <em>t</em>-values, and <em>p</em>-values for each coefficient. Report all of these in a coefficient table.</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -119,9 +119,9 @@ title: "Data"
   </a>
 </td>
 <td align="center" style="vertical-align:middle;">
-  <!-- <a class="my-link" href="codebooks/work-demands.html" target="_blank"> -->
-  <!--   <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> -->
-  <!-- </a> -->
+  <a class="my-link" href="codebooks/slid.html" target="_blank">
+    <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span>
+  </a>
 </td>
 </tr>
 

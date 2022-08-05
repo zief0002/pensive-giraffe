@@ -34,6 +34,11 @@ website:
         - assignments/assignment-01.qmd
         - assignments/assignment-02.qmd
         - assignments/assignment-03.qmd
+        - assignments/assignment-04.qmd
+        - assignments/assignment-05.qmd
+        - assignments/assignment-06.qmd
+        - assignments/assignment-07.qmd
+        - assignments/assignment-08.qmd
 
 format:
   html:
