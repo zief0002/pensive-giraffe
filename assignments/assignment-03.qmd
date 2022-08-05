@@ -10,13 +10,11 @@ date: 07-28-2022
 There is a hypothesis in political science that suggests that income inequality is related to the democratic experience and economic development of a country. In this assignment, you are going to examine whether this hypothesis is supported by empirical evidence by using the data provided in the file *stack-1979.csv*. In particular, you are going to regress income inequality on voter turnout (democratic experience) and energy consumption (economic development). 
 
 
-- [[CSV]](https://raw.githubusercontent.com/zief0002/pensive-giraffe/master/data/stack-1979.csv)
-- [[Data Codebook]](http://zief0002.github.io/pensive-giraffe/codebooks/stack-1979.html)
+- [[CSV]](https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/stack-1979.csv)
+- [[Data Codebook]](../codebooks/stack-1979.html)
 
 
-<!-- ```{r echo=FALSE, out.width="60%", fig.align='center'} -->
-<!-- knitr::include_graphics("figs/assign-01.png") -->
-<!-- ``` -->
+<br />
 
 
 # Instructions

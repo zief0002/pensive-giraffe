@@ -3,7 +3,9 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "data/"
     - "files/"
+    - "scripts/"
 
 website:
   title: "EPsy 8264"
