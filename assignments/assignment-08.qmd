@@ -37,9 +37,9 @@ They hypothesized that all the path coefficients would be positive. A questionna
 - Perceived knowledge about technology integration. These items measure the technological pedagogical knowledge (TPK), technological content knowledge (TCK), and technological pedagogical and content knowledge (TPACK).
 - Perceived ease of use (e.g., I find computers easy to use; computer icons are easy to understand for me)
 - Perceived usefulness of technology for students (e.g., using technology improves cooperation between the learners);
-- Perceived usefulness of technology for teachers (e.g., using technology enhances my effectiveness). 
+- Perceived usefulness of technology for teachers (e.g., using technology enhances my effectiveness); 
 - Attitude toward using technology in education (e.g., technology is valuable in teaching; every teacher must be able to use technology); and
-- Intention to use (e.g., I intend to allow learners to use the technology to explore different topics; I intend to guide students to use the Internet to communicate with experts or other learners to enrich their learning experiences)
+- Intention to use (e.g., I intend to allow learners to use the technology to explore different topics; I intend to guide students to use the Internet to communicate with experts or other learners to enrich their learning experiences).
 
 Composites (using a standardized scale) were created from the items for each construct and the correlation matrix fro these composites (shown below) was used to fit the proposed path model. 
 
