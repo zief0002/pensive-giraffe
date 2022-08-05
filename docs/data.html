@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-28">
 
-<title>EPsy 8264 - Assignment 03</title>
+<title>EPsy 8264 - Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,10 +55,8 @@ ul.task-list{list-style: none;}
 }</script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body class="nav-sidebar nav-fixed">
@@ -90,19 +87,22 @@ ul.task-list{list-style: none;}
  <span class="dropdown-text">Assignment Due Dates</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./assignment-01.html">
+    <a class="dropdown-item" href="./assignments/assignment-01.html">
  <span class="dropdown-text">Assignment 01</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./assignment-02.html">
+    <a class="dropdown-item" href="./assignments/assignment-02.html">
  <span class="dropdown-text">Assignment 02</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./assignment-03.html">
+    <a class="dropdown-item" href="./assignments/assignment-03.html">
  <span class="dropdown-text">Assignment 03</span></a>
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./data.html" aria-current="page">Data</a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">Instructor</a>
   </li>  
@@ -117,25 +117,14 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
-  <li><a href="#outliers-leverage-and-influence" id="toc-outliers-leverage-and-influence" class="nav-link" data-scroll-target="#outliers-leverage-and-influence">Outliers, Leverage, and Influence</a></li>
-  <li><a href="#influence-measures" id="toc-influence-measures" class="nav-link" data-scroll-target="#influence-measures">Influence Measures</a></li>
-  <li><a href="#remove-and-refit" id="toc-remove-and-refit" class="nav-link" data-scroll-target="#remove-and-refit">Remove and Refit</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 03</h1>
-<p class="subtitle lead">Regression Diagnostics</p>
+<h1 class="title">Data</h1>
 </div>
 
 
@@ -143,84 +132,137 @@ ul.task-list{list-style: none;}
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 28, 2022</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<p>There is a hypothesis in political science that suggests that income inequality is related to the democratic experience and economic development of a country. In this assignment, you are going to examine whether this hypothesis is supported by empirical evidence by using the data provided in the file <em>stack-1979.csv</em>. In particular, you are going to regress income inequality on voter turnout (democratic experience) and energy consumption (economic development).</p>
-<ul>
-<li><a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/master/data/stack-1979.csv">[CSV]</a></li>
-<li><a href="http://zief0002.github.io/pensive-giraffe/codebooks/stack-1979.html">[Data Codebook]</a></li>
-</ul>
-<!-- ```{r echo=FALSE, out.width="60%", fig.align='center'} -->
-<!-- knitr::include_graphics("figs/assign-01.png") -->
-<!-- ``` -->
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p>Submit a printed document of your responses to the following questions. Please adhere to the following guidelines for further formatting your assignment:</p>
-<ul>
-<li>All plots should be resized so that they do not take up more room than necessary.</li>
-<li>All figures and tables should have a name (e.g., Figure 1) <em>and</em> an appropriate caption.</li>
-</ul>
-<p>In questions that ask you to “use matrix algebra” to solve the problem, you can either show your syntax and output from carrying out the matrix operations, or you can use Equation Editor to input the matrices involved in your calculations.</p>
-<p>This assignment is worth 18 points.</p>
 <p><br></p>
-</section>
-<section id="exploratory-analysis" class="level1">
-<h1>Exploratory Analysis</h1>
-<ol type="1">
-<li><p>Start by creating scatterplots to examine the relationship between each of the predictors and the outcome. Are there observations that look problematic in these plots? If so, identify the country(ies).</p></li>
-<li><p>Fit the regression model (specified in the introduction) to the data. Report the fitted equation.</p></li>
-<li><p>Create and include a set of plots that allow you to examine the assumptions for linear regression. Based on these plots, comment on the tenability of these assumptions.</p></li>
-</ol>
-<p><br></p>
-</section>
-<section id="outliers-leverage-and-influence" class="level1">
-<h1>Outliers, Leverage, and Influence</h1>
-<ol start="4" type="1">
-<li><p>Compute the externally studentized residuals for the observations based on the fitted regression. Based on these values, identify any countries that you would consider as regression outliers. Explain why you identified these countries as regression outliers.</p></li>
-<li><p>Fit a mean-shift model that will allow you to test whether the observation with the largest absolute studentized residual is statistically different from zero. Report the coefficient-level output (<em>B</em>, <em>SE</em>, <em>t</em>, and <em>p</em>) for this model.</p></li>
-<li><p>Find (and report) the Bonferroni adjusted <em>p</em>-value for the observation with the largest absolute studentized residual. Based on this <em>p</em>-value, is there statistical evidence to call this observation a regression outlier? Explain.</p></li>
-<li><p>Create and include an index plot of the leverage values. Include a line in this plot that displays the cutpoint for “high” leverage. Based on this plot, identify any countries with large leverage values.</p></li>
-<li><p>Based on the evidence you have looked at in Questions #4–7, do you suspect that any of the countries might influence the regression coefficients? Explain.</p></li>
-</ol>
-<p><br></p>
-</section>
-<section id="influence-measures" class="level1">
-<h1>Influence Measures</h1>
-<ol start="9" type="1">
-<li><p>For each of the influence measures listed below, create and include an index plot of the influence measure. For each plot, also include a line that displays the cutpoint for “high” influence. <strong>(3pts)</strong></p>
-<ol type="a">
-<li>Scaled (standardized) DFBETA values</li>
-<li>Cook’s <em>D</em></li>
-<li>DFFITS</li>
-<li>COVRATIO</li>
-</ol></li>
-<li><p>Show how the Cook’s <em>D</em> value for the country with the largest Cook’s <em>D</em> value is calculated using the country’s leverage value and standardized residual.</p></li>
-<li><p>Create and include the added-variable plots for each each of the coefficients. Based on these plots, identify any countries that you believe may be jointly influencing the regression coefficients.</p></li>
-</ol>
-<p><br></p>
-</section>
-<section id="remove-and-refit" class="level1">
-<h1>Remove and Refit</h1>
-<ol start="12" type="1">
-<li><p>Based on all of the evidence from the different influence measures you examined, identify and report the country(ies) that are influential. Explain how you decided on this set of observations.</p></li>
-<li><p>Remove the observations you identified in Question #12 from the data and refit the regression model omitting these observations. Report the fitted equation.</p></li>
-<li><p>Create and include a set of plots that allow you to examine the assumptions for linear regression. Based on these plots, comment on the tenability of these assumptions.</p></li>
-<li><p>Compare and contrast the coefficient-level inferences from the model fitted with the full data and that fitted with the omitted observations.</p></li>
-<li><p>Compare and contrast the model-level summaries, namely <span class="math inline">\(R^2\)</span> and the RMSE, from the model fitted with the full data and that fitted with the omitted observations.</p></li>
-</ol>
+
+<table class="table">
+<thead>
+<tr>
+<th style="width:50%;">
+Name
+</th>
+<th style="width:25%;text-align:center;">
+Data
+</th>
+<th style="width:25%;text-align:center;">
+Codebook
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+contraception.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv"> <i class="fas fa-file-csv"></i> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/contraception.html" target="_blank"> <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+</tr>
+<tr>
+<td>
+credit.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/credit.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/credit.html" target="_blank"> <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+</tr>
+<tr>
+<td>
+equal-education-opportunity.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/equal-education-opportunity.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<!-- <a href="codebooks/substance-family.html" target="_blank"> -->
+<!--   <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> -->
+<!-- </a> -->
+</td>
+</tr>
+<tr>
+<td>
+evaluations.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/evaluations.csv"> <i class="fas fa-file-csv"></i> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/evaluations.html" target="_blank"> <i class="fas fa-book-open"></i> </a>
+</td>
+</tr>
+<tr>
+<td>
+iowa-judges.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/iowa-judges.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/iowa-judges.html" target="_blank"> <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+</tr>
+<tr>
+<td>
+mpls-violent-crime.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/mpls-violent-crime.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/mpls-violent-crime.html" target="_blank"> <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+</tr>
+<tr>
+<td>
+slid.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/slid.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<!-- <a class="my-link" href="codebooks/work-demands.html" target="_blank"> -->
+<!--   <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> -->
+<!-- </a> -->
+</td>
+</tr>
+<tr>
+<td>
+stack-1979.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/stack-1979.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/stack-1979.html" target="_blank"> <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+</tr>
+<tr>
+<td>
+states-2019.csv
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/states-2019.csv"> <span class="fas fa-file-csv" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+<td align="center" style="vertical-align:middle;">
+<a class="my-link" href="codebooks/states-2019.html" target="_blank"> <span class="fas fa-book-open" style="color: #ff2600; font-size: 20px;"></span> </a>
+</td>
+</tr>
+</tbody>
+
+</table>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

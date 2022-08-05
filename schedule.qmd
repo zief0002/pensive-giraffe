@@ -1,7 +1,5 @@
 ---
 title: "Calendar"
-description: |
-  Tentative calendar of topics.
 ---
 
 
@@ -29,16 +27,16 @@ The calendar below lists the tentative course topics. The dates listed are subje
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 07</td>
+<td>Sept. 06</td>
 <td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-08-09-message-to-students"><span class="fa fa-book"></span></a>
+  <a class="my-link" href="readings/01-welcome-to-8264.html"><span class="fa fa-book"></span></a>
 </td>
 <td>Welcome to EPsy 8264</td>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 </tr>
 
 
-<!-- Unit 01: MATHEMATICS -->
+<!-- Unit 01: MATHEMATICAL AND COMPUTATIONAL FOUNDATIONS -->
 
 <tr>
 <td colspan="5"><b>Unit 01: Mathematical and Computational Foundations</b></td>
@@ -46,314 +44,315 @@ The calendar below lists the tentative course topics. The dates listed are subje
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 09</td>
+<td>Sept. 08</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class="my-link" href="posts/2021-08-12-reading-introduction-to-matrix-algebra"><span class="fa fa-book"></span></a>
+  <a class="my-link" href="readings/02-introduction-to-matrix-algebra.html"><span class="fa fa-book"></span></a>
 </td>
 <td style="vertical-align:middle;" rowspan="2">Introduction to Matrix Algebra</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class = "my-link" href="posts/2021-08-11-worksheet-introduction-to-matrix-algebra"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="worksheets/02-introduction-to-matrix-algebra.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 14</td>
+<td>Sept. 13</td>
 </tr>
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 16</td>
+<td>Sept. 15</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class="my-link" href="posts/2021-08-14-reading-ols"><span class="fa fa-book"></span></a>
+  <a class="my-link" href="readings/03-ols.html"><span class="fa fa-book"></span></a>
 </td>
 <td style="vertical-align:middle;" rowspan="2">OLS Regression using Matrices and its Properties</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class = "my-link" href="posts/2021-09-09-notes-ols-regression"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="notes/03-ols-regression.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 21</td>
+<td>Sept. 20</td>
 </tr>
+
 
 <!-- Unit 02: SIMULATION -->
 
 
-<tr>
-<td colspan="5"><b>Unit 02: Simulation</b></td>
-</tr>
+<!-- <tr> -->
+<!-- <td colspan="5"><b>Unit 02: Simulation</b></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 23</td>
-<td align="center" style="vertical-align:middle;" rowspan="3">
-  <a class="my-link" href="posts/2021-09-18-reading-simulating-from-the-regression-model"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;" rowspan="3">Simulating from the Regression Model</td>
-<td align="center" style="vertical-align:middle;" rowspan="3">
-  <a class = "my-link" href="posts/2021-09-20-notes-simulating-from-the-regression-model"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Sept. 22</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="3"> -->
+<!--   <a class="my-link" href="readings/04-simulating-from-the-regression-model.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;" rowspan="3">Simulating from the Regression Model</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="3"> -->
+<!--   <a class = "my-link" href="posts/2021-09-20-notes-simulating-from-the-regression-model"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 28</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Sept. 27</td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Sept. 30</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Sept. 29</td> -->
+<!-- </tr> -->
 
 
 <!-- Unit 03: REGRESSION DIAGNOSTICS -->
 
 
-<tr>
-<td colspan="5"><b>Unit 03: Regression Diagnostics</b></td>
-</tr>
+<!-- <tr> -->
+<!-- <td colspan="5"><b>Unit 03: Regression Diagnostics</b></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 05</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class="my-link" href="posts/2021-09-23-reading-regression-diagnostics"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;" rowspan="2">Regression Diagnostics</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class = "my-link" href="posts/2021-09-27-notes-tools-for-dealing-with-heteroskedasticity"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 04</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class="my-link" href="readings/05-regression-diagnostics.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;" rowspan="2">Regression Diagnostics</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class = "my-link" href="posts/2021-09-27-notes-tools-for-dealing-with-heteroskedasticity"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 07</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 06</td> -->
+<!-- </tr> -->
 
 
    
 
 <!-- Unit 03: HETEROSKEDASTICITY-->
 
-<tr>
-<td colspan="5"><b>Unit 04: Tools for Dealing with Heteroskedasticity</b></td>
-</tr>
+<!-- <tr> -->
+<!-- <td colspan="5"><b>Unit 04: Tools for Dealing with Heteroskedasticity</b></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 12</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-09-29-reading-variance-stabilizing-transformations"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Variance Stabilizing Transformations</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-09-27-notes-tools-for-dealing-with-heteroskedasticity"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 11</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/06-variance-stabilizing-transformations.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Variance Stabilizing Transformations</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-09-27-notes-tools-for-dealing-with-heteroskedasticity"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 14</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-09-29-reading-wls-and-sandwich-estimation"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Weighted Least Squares (WLS) and Sandwich Estimation</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-09-27-notes-tools-for-dealing-with-heteroskedasticity"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 13</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="posts/2021-09-29-reading-wls-and-sandwich-estimation"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Weighted Least Squares (WLS) and Sandwich Estimation</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-09-27-notes-tools-for-dealing-with-heteroskedasticity"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
 
 <!-- Unit 04: COLLINEARITY-->
 
 
-<tr>
-<td colspan="5"><b>Unit 05: Diagnosing Collinearity and Tools for Dealing with It</b></td>
-</tr>
+<!-- <tr> -->
+<!-- <td colspan="5"><b>Unit 05: Diagnosing Collinearity and Tools for Dealing with It</b></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 19</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-10-04-reading-diagnosing-collinearity"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Diagnosing Collinearity</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-09-30-notes-diagnosing-collinearity"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 18</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/07-diagnosing-collinearity.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Diagnosing Collinearity</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-09-30-notes-diagnosing-collinearity"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 21</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-10-04-reading-pca-via-spectral-decomposition"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Principal Components Analysis via Spectral Decomposition</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-10-04-notes-pca-via-spectral-decomposition"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 20</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/08-pca-via-spectral-decomposition.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Principal Components Analysis via Spectral Decomposition</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-10-04-notes-pca-via-spectral-decomposition"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 26</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-10-11-reading-pca-via-svd"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Principal Components Analysis via Singular Value Decomposition</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-10-05-notes-pca-via-svd"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 25</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/09-pca-via-svd.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Principal Components Analysis via Singular Value Decomposition</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-10-05-notes-pca-via-svd"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Oct. 28</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td style="vertical-align:middle;">NO CLASS: Mental Health Day</td>
-<td align="center" style="vertical-align:middle;"></td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Oct. 27</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- <td style="vertical-align:middle;">NO CLASS: Mental Health Day</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 02</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td style="vertical-align:middle;">SVD using Different Inputs</td>
-<td align="center" style="vertical-align:middle;"></td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 01</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- <td style="vertical-align:middle;">SVD using Different Inputs</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 04</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class="my-link" href="posts/2021-10-25-reading-biased-estimation-ridge-regression"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;" rowspan="2">Biased Estimation: Ridge Regression</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class = "my-link" href="posts/2021-10-20-notes-biased-estimation-ridge-regression"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 03</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class="my-link" href="readings/10-biased-estimation-ridge-regression.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;" rowspan="2">Biased Estimation: Ridge Regression</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class = "my-link" href="posts/2021-10-20-notes-biased-estimation-ridge-regression"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 09</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 08</td> -->
+<!-- </tr> -->
 
 
 <!-- Unit 05: MODEL SELECTION -->
 
 
-<tr>
-<td colspan="5"><b>Unit 05: Model Selection</b></td>
-</tr>
+<!-- <tr> -->
+<!-- <td colspan="5"><b>Unit 05: Model Selection</b></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 11</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td style="vertical-align:middle;">Model Selection Activity</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-11-11-activity-model-selection"><span class="fas fa-link"></span></a>
-</td>
-</tr>
-
-
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 16</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class="my-link" href="posts/2021-11-12-reading-model-selection"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;" rowspan="2">Model Selection: The 'Vintage' Methods</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class = "my-link" href="handouts/2021-10-26-notes-model-selection.pdf"><span class="fas fa-link"></span></a>
-</td>
-</tr>
-
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 18</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 10</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- <td style="vertical-align:middle;">Model Selection Activity</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="worksheets/13-model-selection.html"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 23</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-11-18-reading-cross-validation"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Model Selection: Cross-Validation Methods</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-11-18-notes-cross-validation"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 15</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class="my-link" href="readings/11-model-selection.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;" rowspan="2">Model Selection: The 'Vintage' Methods</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class = "my-link" href="handouts/2021-10-26-notes-model-selection.pdf"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 25</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td style="vertical-align:middle;">NO CLASS --- Thanksgiving Break</td>
-<td align="center" style="vertical-align:middle;"></td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 17</td> -->
+<!-- </tr> -->
 
 
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 22</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/12-cross-validation.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Model Selection: Cross-Validation Methods</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-11-18-notes-cross-validation"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 30</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-11-18-reading-cross-validation"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Model Selection: Cross-Validation Methods</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-11-18-notes-cross-validation"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 24</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- <td style="vertical-align:middle;">NO CLASS --- Thanksgiving Break</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- </tr> -->
+
+
+
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Nov. 29</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/12-cross-validation.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Model Selection: Cross-Validation Methods</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-11-18-notes-cross-validation"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
 
 <!-- Unit 06:PATH ANALYSIS -->
 
-<tr>
-<td colspan="5"><b>Unit 06: Path Analysis</b></td>
-</tr>
+<!-- <tr> -->
+<!-- <td colspan="5"><b>Unit 06: Path Analysis</b></td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Dec. 07</td>
-<td align="center" style="vertical-align:middle;">
-  <a class="my-link" href="posts/2021-11-22-reading-regression-from-summary-measures"><span class="fa fa-book"></span></a>
-</td>
-<td style="vertical-align:middle;">Regression from Summary Measures</td>
-<td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-11-22-notes-regression-from-summary-measures"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Dec. 01</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class="my-link" href="readings/13-regression-from-summary-measures.html"><span class="fa fa-book"></span></a> -->
+<!-- </td> -->
+<!-- <td style="vertical-align:middle;">Regression from Summary Measures</td> -->
+<!-- <td align="center" style="vertical-align:middle;"> -->
+<!--   <a class = "my-link" href="posts/2021-11-22-notes-regression-from-summary-measures"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Dec. 07</td>
-<td align="center" style="vertical-align:middle;" rowspan="2"></td>
-<td style="vertical-align:middle;" rowspan="2">Path Analysis</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
-  <a class = "my-link" href="posts/2021-12-08-notes-path-models"><span class="fas fa-link"></span></a>
-</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Dec. 06</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"></td> -->
+<!-- <td style="vertical-align:middle;" rowspan="2">Path Analysis</td> -->
+<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
+<!--   <a class = "my-link" href="posts/2021-12-08-notes-path-models"><span class="fas fa-link"></span></a> -->
+<!-- </td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Dec. 09</td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Dec. 08</td> -->
+<!-- </tr> -->
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Dec. 14</td>
-<td align="center" style="vertical-align:middle;"></td>
-<td style="vertical-align:middle;">NO CLASS</td>
-<td align="center" style="vertical-align:middle;"></td>
-</tr>
+<!-- <tr> -->
+<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
+<!-- <td>Dec. 13</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- <td style="vertical-align:middle;">NO CLASS</td> -->
+<!-- <td align="center" style="vertical-align:middle;"></td> -->
+<!-- </tr> -->
 
 </tbody>
 </table>

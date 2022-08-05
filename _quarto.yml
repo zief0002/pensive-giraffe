@@ -16,6 +16,8 @@ website:
       - text: "Schedule"
         file: schedule.qmd
       - sidebar:assignments
+      - text: "Data"
+        file: data.qmd
       - text: "Instructor"
         file: about.qmd
         
@@ -27,9 +29,9 @@ website:
       collapse-level: 1
       contents: 
         - assignments.qmd
-        - assignment-01.qmd
-        - assignment-02.qmd
-        - assignment-03.qmd
+        - assignments/assignment-01.qmd
+        - assignments/assignment-02.qmd
+        - assignments/assignment-03.qmd
 
 format:
   html:

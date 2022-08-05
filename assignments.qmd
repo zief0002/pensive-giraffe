@@ -25,7 +25,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 </td>
 <td>Sept. 28</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="assignment-01.html"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-01.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -33,7 +33,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 02: *Simulating from the Regression Model*</td>
 <td>Oct. 07</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-09-16-assignment-02"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-02.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -41,7 +41,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 03: *Regression Diagnostics*</td>
 <td>Oct. 14</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-09-24-assignment-03"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-03.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -49,7 +49,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 04: *Using WLS to Model Data with Outliers*</td>
 <td>Oct. 21</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-09-29-assignment-04"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-04.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -57,7 +57,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 05: *Collinearity and Dimension Reduction*</td>
 <td>Nov. 02</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-10-08-assignment-05"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-05.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -65,7 +65,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 06: *Ridge Regression*</td>
 <td>Nov. 16</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-10-25-assignment-06"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-06.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -73,7 +73,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 07: *Cross-Validation*</td>
 <td>Dec. 07</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-10-25-assignment-07"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-07.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
@@ -81,7 +81,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 <td>Assignment 08: *Path Analysis*</td>
 <td>Dec. 16</td>
 <td align="center" style="vertical-align:middle;">
-  <a class = "my-link" href="posts/2021-11-26-assignment-08"><span class="fas fa-link"></span></a>
+  <a class = "my-link" href="assignments/assignment-08.html"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 

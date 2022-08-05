@@ -1,5 +1,10 @@
+# Ignore these files
 /.quarto/
-_posts
 .Rproj.user
 
+# Ignore these directories
+_posts
+admin/
+
+# Ignore these directories in root
 /files
