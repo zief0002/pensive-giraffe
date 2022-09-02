@@ -25,7 +25,7 @@ Submit a printed document of your responses to the following questions. Please a
 
 In questions that ask you to "use matrix algebra" to solve the problem, you can either show your syntax and output from carrying out the matrix operations, or you can use Equation Editor to input the matrices involved in your calculations.
 
-This assignment is worth 22 points.
+This assignment is worth 18 points.
 
 <br />
 
@@ -45,7 +45,7 @@ This assignment is worth 22 points.
 
 # Initial Model
 
-Since the ratings are assigned based on different numbers of attorneys, use a weight equal to the number of respondents to fit a WLS model that regresses the standardized retention percentage on the 12 standardized predictors. 
+Since the ratings are assigned based on different numbers of attorneys, use a weight equal to the number of respondents to fit a WLS model that regresses the **standardized** retention percentage on the 12 **standardized** predictors. 
 
 5. Report the coefficient-level output, including the estimated coefficients (beta weights), standard errors, *t*-values, and *p*-values. 
 
@@ -60,7 +60,7 @@ Since the ratings are assigned based on different numbers of attorneys, use a we
 
 In this section you are going to carry out the principal components analysis by using singular value decomposition on *the correlation matrix of the predictors*.
 
-8. Compute the composite score based on the first principal component for the first observation (Judge John J. Bauercamper). Show your work.
+8. Compute the composite score based on the first principal component for the first observation (Judge John J. Bauercamper). Show your work in an equation.
 
 Read the section on scree plots (Section 4) [in this web article](https://medium.com/@bioturing/how-to-read-pca-biplots-and-scree-plots-186246aae063).  
 
@@ -85,7 +85,7 @@ The evidence from the previous section suggests that the first two principal com
 
 15. Again, fit the same regression model using the first two principal components as predictors of retention percentage, but this time also include a quadratic effect of the first principal component. Create and report the plot of the residuals vs. fitted values. What does this suggest about the validity of the linearity assumption?
 
-16. Interpret the effect of the first principal component from this model.
+16. Interpret the quadratic effect of the first principal component from this model. (It may be helpful to create a plot of the effect to guide your interpretation.)
 
 <br />
 

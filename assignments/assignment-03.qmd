@@ -26,7 +26,7 @@ Submit a printed document of your responses to the following questions. Please a
 
 In questions that ask you to "use matrix algebra" to solve the problem, you can either show your syntax and output from carrying out the matrix operations, or you can use Equation Editor to input the matrices involved in your calculations.
 
-This assignment is worth 18 points.
+This assignment is worth 16 points.
 
 <br />
 
@@ -59,7 +59,7 @@ This assignment is worth 18 points.
 
 # Influence Measures
 
-9. For each of the influence measures listed below, create and include an index plot of the influence measure. For each plot, also include a line that displays the cutpoint for "high" influence. **(3pts)**
+9. For each of the influence measures listed below, create and include an index plot of the influence measure. For each plot, also include a line that displays the cutpoint for "high" influence. **(2pts)**
 
     a. Scaled (standardized) DFBETA values
     b. Cook's *D*
@@ -68,22 +68,20 @@ This assignment is worth 18 points.
 
 10. Show how the Cook's *D* value for the country with the largest Cook's *D* value is calculated using the country's leverage value and standardized residual.
 
-11. Create and include the added-variable plots for each each of the coefficients. Based on these plots, identify any countries that you believe may be jointly influencing the regression coefficients.
-
 <br />
 
 
 # Remove and Refit
 
-12. Based on all of the evidence from the different influence measures you examined, identify and report the country(ies) that are influential. Explain how you decided on this set of observations.
+11. Based on all of the evidence from the different influence measures you examined, identify and report the country(ies) that are influential. Explain how you decided on this set of observations.
 
-13. Remove the observations you identified in Question #12 from the data and refit the regression model omitting these observations. Report the fitted equation.
+12. Remove the observations you identified in Question #12 from the data and refit the regression model omitting these observations. Report the fitted equation.
 
-14. Create and include a set of plots that allow you to examine the assumptions for linear regression. Based on these plots, comment on the tenability of these assumptions.
+13. Create and include a set of plots that allow you to examine the assumptions for linear regression. Based on these plots, comment on the tenability of these assumptions.
 
-15. Compare and contrast the coefficient-level inferences from the model fitted with the full data and that fitted with the omitted observations.
+14. Compare and contrast the coefficient-level inferences from the model fitted with the full data and that fitted with the omitted observations.
 
-16. Compare and contrast the model-level summaries, namely $R^2$ and the RMSE, from the model fitted with the full data and that fitted with the omitted observations.
+15. Compare and contrast the model-level summaries, namely $R^2$ and the RMSE, from the model fitted with the full data and that fitted with the omitted observations.
 
 
 
