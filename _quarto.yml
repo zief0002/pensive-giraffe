@@ -21,7 +21,7 @@ website:
       - sidebar:assignments
       - text: "Data"
         file: data.qmd
-      - text: "Instructor"
+      - text: "Instructor & TA"
         file: about.qmd
         
   sidebar:

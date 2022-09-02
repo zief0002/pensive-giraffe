@@ -1,9 +1,12 @@
 ---
-title: "Instructor"
+title: "Instructor/TA"
 ---
 
-```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics("img/andy-avatar.png")
+```{r}
+#| echo: false
+#| fig-align: 'center'
+#| layout-ncol: 2
+knitr::include_graphics(c("img/andy-avatar.png", "img/carlos.jpg"))
 ```
 
 
@@ -13,15 +16,11 @@ knitr::include_graphics("img/andy-avatar.png")
 **Office Hours:** Monday 9:00 AM&ndash;10:00 AM; and by appointment <br />
 **Virtual Office:** If you want to meet virtually, send me a Google calendar invite and include a Zoom link. 
 
+<br />
 
-
-
-
-<!-- ### Teaching Assistant {-} -->
-
-<!-- Vimal Rao ([rao00013@umn.edu](mailto://rao00013@umn.edu))  <br /> -->
-<!-- **Virtual Office:** [Zoom](https://umn.zoom.us/j/93539967769?pwd=cERwWVBwR2paa25YcEdzSmdydktDQT09#success)<br /> -->
-<!-- **Physical Office:** [Education Sciences Building 192](https://www.google.com/maps/place/Education+Sciences+Building/@44.9784043,-93.2394586,15z/data=!4m2!3m1!1s0x0:0x45656dac481b9150)  <br /> -->
-<!-- **Office Hours:** Tuesday 5:30 PM&ndash;6:30 PM; and by appointment -->
+**TA:** Carlos Chavez  <br />
+**Email:** [chave143@umn.edu](mailto://chave143@umn.edu) <br />
+**Office:** [Education Sciences Building 274](https://www.google.com/maps/place/Education+Sciences+Building/@44.9784043,-93.2394586,15z/data=!4m2!3m1!1s0x0:0x45656dac481b9150)  <br />
+**Office Hours:** Wednesday 9:00 AM&ndash;11:00 AM; and by appointment
 
 <!-- <br /> -->
