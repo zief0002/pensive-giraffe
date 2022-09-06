@@ -55,3 +55,28 @@ The course textbook is available via the University of Minnesota library.
 <br />
 
 
+## Other Resources
+
+- [Statistical Modeling and Computation for Educational Scientists](https://zief0002.github.io/modeling/)
+  + Learn about simple and multiple regression
+  + Learn about Ordinary Least squares (OLS)
+  + Learn about correlation/standardized regression
+  + Learn about regrression assumptions
+  + Learn about dummy coding for dichotomous/polychotomous predictors
+  + Learn about interaction effects
+- [Computational Toolkit for Educational Scientists](https://zief0002.github.io/toolkit-quarto/)
+  + Learn basics of R
+  + Learn `{dplyr}` for wrangling data
+  + Learn `{ggplot2}` for visualizing data
+- [EPsy 8252 Materials](https://zief0002.github.io/epsy-8252/)
+  + Learn about Maximum Likelihood
+  + Learn about information criteria
+  + Learn about polynomial effects
+  + Learn about log-transformations
+  + Learn about logistic models
+  + Learn about linear mixed-effects models
+  
+
+<br />
+
+
