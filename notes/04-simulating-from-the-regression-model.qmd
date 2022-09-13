@@ -19,14 +19,14 @@ Here are links to several script files and handouts that we will use in class.
 
 ### Generating Data
 
-- [Generating Random Data from a Regression Model](../../scripts/03-generate-random-data.R) is a script file that provides syntax for generating data from a given population regression model.
+- [Generating Random Data from a Regression Model](scripts/03-generate-random-data.R) is a script file that provides syntax for generating data from a given population regression model.
 
 <br />
 
 
 ### Simulation 1: Simulating from a Regression Model
 
-- [Simulating from a Regression Model](../../scripts/04-simulating-from-the-regression-model.R) is a script file that provides syntax for carrying out a simulation to produce distributions of estimates from a regression model.
+- [Simulating from a Regression Model](scripts/04-simulating-from-the-regression-model.R) is a script file that provides syntax for carrying out a simulation to produce distributions of estimates from a regression model.
 - [Vizualization of Simulating from a Regression Model](../files/thought-experiment-01.pdf) is a handout visualizing the simulation process for generating data from a given population regression model.
 
 <br />
