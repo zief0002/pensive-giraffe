@@ -9,7 +9,7 @@ date: 08-05-2022
 
 Read the following article.
 
-- Osborne, J. W. (2009). [Notes on the use of data transformations](http://PAREonline.net/getvn.asp?v=8&n=6). *Practical Assessment, Research &amp; Evaluation, 8*(6). 
+- Osborne, J. W. (2009). [Notes on the use of data transformations](https://doi.org/10.7275/4vng-5608). *Practical Assessment, Research &amp; Evaluation, 8*(6). https://doi.org/10.7275/4vng-5608
 
 <br />
 
