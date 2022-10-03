@@ -70,7 +70,7 @@ s_e = sqrt((t(e) %*% e) / (n - k - 1))
 s_e
 
 
-# Compute varaince-covariance matrix of b
+# Compute variance-covariance matrix of b
 V = as.numeric(s_e^2) * solve(t(X) %*% X)
 V
 

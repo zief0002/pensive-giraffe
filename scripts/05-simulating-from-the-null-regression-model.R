@@ -9,12 +9,13 @@ library(tidyverse)
 # Set up KNOWN parameters in simulation 
 beta = c(0.2, 0)
 n = 25
-trials = 500 #Number of trials
+trials = 1000 #Number of trials
 
 
 # Simulate x-values to use in each trial of the simulation
 set.seed(123456) # Make simulation reproducible
 x = runif(n, min = -3, max = 3)
+
 
 
 # Set up empty list to store simulation results
@@ -42,15 +43,21 @@ names(results) = c("b_0", "b_1", "R2") # name columns
 # Examine b
 head(results)
 
+
+
+
 # Examine beta_1 estimates
 ggplot(data = results, aes(x = b_1)) +
   geom_density(color = "blue") +
   geom_vline(xintercept = mean(results$b_1), color = "blue", linetype = "dashed") + #Average of sample b_1s
   geom_vline(xintercept = 0, color = "orange") + #Population value of beta_1
-  theme_bw()
+  theme_bw() 
+
 
 mean(results$b_1)
 sd(results$b_1)
+
+
 
 
 # Examine R2 estimates

@@ -16,16 +16,21 @@ n = 25
 # Simulate x-values to use in each trial of the simulation
 set.seed(123456) #Make simulation reproducible
 x = runif(n, min = -3, max = 3)
+x
+
+
+
 
 
 # Generate y-values from model
 y = beta[1] + beta[2] * x + rnorm(n, mean = 0, sd = sigma)
+y
 
 
 # Plot the data and the regression lines
 data.frame(x, y) %>%
   ggplot(aes(x = x, y = y)) +
-  geom_point() +
+  geom_point(size = 5) +
   xlim(-3, 3) +
   ylim(-3.5, 3.5) +
   theme_light() +
@@ -66,7 +71,7 @@ glance(fitted_model)$statistic[[1]]   #Extract F-statistic using glance() functi
 set.seed(123456) #Make simulation reproducible
 n = 25
 x = runif(n, min = -3, max = 3)
-
+x = runif(25, min = -3, max = 3)
 
 # Function to generate random data from a regression model with normally distributed errors
 lm_sim = function(beta_0, beta_1, sigma){
@@ -111,6 +116,26 @@ lm_sim_plot(beta_0 = 0.2, beta_1 = 0.5, sigma = 1)
 
 
 
+
+
+# Function to generate random data from a regression model with normally distributed errors, 
+# and plot the results
+lm_sim = function(beta_0, beta_1, sigma){
+  # Generate y-values from model
+  y = beta_0 + beta_1 * x + rnorm(n, mean = 0, sd = sigma)
+  
+  # Fit regression line
+  fitted_model = lm(y ~ 1 + x)
+  
+  # Extract slope
+  my_slope = coef(fitted_model)[[2]] 
+    
+  # Return slope
+  return(my_slope)
+}
+
+# Use function
+lm_sim(beta_0 = 0.2, beta_1 = 0.5, sigma = 1)
 
 
 

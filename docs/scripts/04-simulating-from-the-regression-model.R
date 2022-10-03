@@ -35,12 +35,18 @@ for(i in 1:trials){
   my_estimates[[i]][3] = summary(fitted_model)$sigma #Extract residual standard error estimate
 }
 
+
+
+
 # Convert the list to a data frame for easier computing
 results = data.frame(do.call(rbind, my_estimates))
 names(results) = c("b_0", "b_1", "rse") #name columns
 
 # Examine b
 head(results)
+
+
+
 
 # Examine beta_0 estimates
 ggplot(data = results, aes(x = b_0)) +
