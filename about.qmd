@@ -21,6 +21,6 @@ knitr::include_graphics(c("img/andy-avatar.png", "img/carlos.jpg"))
 **TA:** Carlos Chavez  <br />
 **Email:** [chave143@umn.edu](mailto://chave143@umn.edu) <br />
 **Office:** [Education Sciences Building 275](https://www.google.com/maps/place/Education+Sciences+Building/@44.9784043,-93.2394586,15z/data=!4m2!3m1!1s0x0:0x45656dac481b9150)  <br />
-**Office Hours:** Wednesday 11:00 AM&ndash;1:00 AM; and by appointment
+**Office Hours:** Wednesday 11:00 AM&ndash;1:00 PM; and by appointment
 
 <!-- <br /> -->
