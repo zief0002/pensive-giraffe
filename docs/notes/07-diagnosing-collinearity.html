@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-09-29">
 
-<title>EPsy 8264 - r paste(emo::ji('memo'), 'Diagnosing Collinearity')</title>
+<title>EPsy 8264 - 📝 Diagnosing Collinearity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -568,7 +568,7 @@ Constraining some parameters is another way to produce a full rank design matrix
 <p><br></p>
 </section>
 </section>
-<section id="identifying-collinearity" class="level1 page-columns page-full">
+<section id="identifying-collinearity" class="level1">
 <h1>Identifying Collinearity</h1>
 <p>In our case study example, we were alerted to the possible collinearity by finding that the predictors jointly were statistically significant, but that each of the individual predictors were not. Other signs that you may have collinearity problems are:</p>
 <ul>
@@ -659,7 +659,7 @@ Constraining some parameters is another way to produce a full rank design matrix
 </ul>
 <p><br></p>
 </section>
-<section id="eigenvalues-of-the-correlation-matrix" class="level2 page-columns page-full">
+<section id="eigenvalues-of-the-correlation-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="eigenvalues-of-the-correlation-matrix">Eigenvalues of the Correlation Matrix</h2>
 <p>A second common method of evaluating collinearity is to compute and evaluate the eigenvalues of the correlation matrix for the predictors. Recall that each square (<span class="math inline">\(k \times k\)</span>) matrix has a set of <em>k</em> scalars, called eigenvalues (denoted <span class="math inline">\(\lambda\)</span>) associated with it. These eigenvalues can be arranged in descending order such that,</p>
 <p><span class="math display">\[
@@ -675,9 +675,9 @@ Constraining some parameters is another way to produce a full rank design matrix
 <li>If the predictors are collinear with one another (dependent) then <span class="math inline">\(\lambda_i = 0\)</span> and the sum of the reciprocal values will be equal to infinity, <span class="math inline">\(\sum_{i=1}^k \frac{1}{\lambda_i} = \infty\)</span>.</li>
 <li>When there is nonperfect collinearity then <span class="math inline">\(0 &lt; \lambda_i &lt; 1\)</span>, and the sum of the reciprocal values will be greater than the number of predictors, <span class="math inline">\(\sum_{i=1}^k \frac{1}{\lambda_i} &gt; k\)</span>.</li>
 </ul>
-<aside>
-In an orthogonal matrix, the eigenvalues are all <span class="math inline">\(\pm1\)</span>, but since the correlation matrix is positive semidefinite, the eigenvalues are all <span class="math inline">\(+1\)</span>.
-</aside>
+<div class="math">
+<p>In an orthogonal matrix, the eigenvalues are all <span class="math inline">\(\pm1\)</span>, but since the correlation matrix is positive semidefinite, the eigenvalues are all <span class="math inline">\(+1\)</span>.</p>
+</div>
 <p>Larger sums of the reciprocal values of the eigenvalues is indicative of higher degrees of collinearity. In practice, we might use some cutoff to indicate when the collinearity is problematic. One such cutoff used is, if the sum is greater than five times the number of predictors, it is a sign of collinearity.</p>
 <p><span class="math display">\[
 \mathrm{IF} \quad \sum_{i=1}^k \frac{1}{\lambda_i} &gt; 5k \quad \mathrm{THEN} \quad \mathrm{collnearity~is~a~problem}
@@ -729,17 +729,29 @@ $vectors
 </section>
 <section id="condition-indices" class="level2">
 <h2 class="anchored" data-anchor-id="condition-indices">Condition Indices</h2>
-<p>A third common diagnostic measure of collinearity, called <em>condition indices</em>, is also based on the eigenvalues of the model predictors’ correlation matrix. Each eigenvalue has an associated value called its condition index and denoted <span class="math inline">\(\kappa\)</span>. The <em>j</em>th condition index is defined as</p>
+<p>A condition number for a matrix and computational task quantifies how sensitive the result is to perturbations in the input data and to roundoff errors made during the solution process. If minor changes to the matrix elements result in large differences in the computation (say of the inverse), we say that the matrix is “ill-conditioned”. It is important to note that a condition number applies not only to a particular matrix, but also to the particular computation being carried out. That is, a matrix can be ill-conditioned for inversion while the eigenvalue problem is well-conditioned.</p>
+<p>A third common diagnostic measure of collinearity is to compute the <em>condition number</em> of the correlation matrix of the model predictors. This tells us whether small changes in the data will lead to large changes in regression coefficient estimates. To compute the condition number, we need to compute the <em>condition index</em> for each of the eigenvalues of the correlation matrix based on the model predictors. Each eigenvalue has an associated condition index, and the <em>j</em>th eigenvalue’s condition index is denoted <span class="math inline">\(\kappa_j\)</span>, where,</p>
 <p><span class="math display">\[
-\kappa_j = \sqrt{\frac{\lambda_1}{\lambda_j}}
+\kappa_j = \sqrt{\frac{\lambda_{\mathrm{Max}}}{\lambda_j}}
 \]</span></p>
-<p>for <span class="math inline">\(j=1,2,3,\ldots,k\)</span>, where <span class="math inline">\(\lambda_1\)</span> is the first (largest) eigenvalue and <span class="math inline">\(\lambda_j\)</span> is the <em>j</em>th eigenvalue.</p>
-<p>The first condition index, <span class="math inline">\(\kappa_1\)</span>, will always be equal to 1, and the other condition indices will be larger than one. The largest condition index will be,</p>
+<p>and <span class="math inline">\(\lambda__{\mathrm{Max}\)</span> is the largest eigenvalue. The largest eigenvalue will have a condition index of,</p>
 <p><span class="math display">\[
-\kappa_k = \sqrt{\frac{\lambda_1}{\lambda_k}}
+\begin{split}
+\kappa_{\lambda_\mathrm{Max}} &amp;= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Max}}} \\[1ex]
+&amp;= 1
+\end{split}
 \]</span></p>
-<p>where <span class="math inline">\(\lambda_k\)</span> is the smallest eigenvalue. This is referred to as the <em>condition number</em> of the correlation matrix. If the condition number is small, it indicates that the predictors are not collinear, whereas large condition numbers are evidence supporting collinearity.</p>
-<p>From empirical work, condition numbers that exceed 15 are typically problematic (this indicates that the maximum eigenvalue is more than 225 times greater than the maximum eigenvalue). When the condition number exceeds 30, corrective action will almost surely need to be taken. Here we compute the condition indices and the condition number for our empirical example.</p>
+<p>The smallest eigenvalue will have a condition index of</p>
+<p><span class="math display">\[
+\kappa_{\lambda_\mathrm{Min}} &amp;= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}}
+\]</span></p>
+<p>This value will be larger than 1 since <span class="math inline">\(\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}\)</span> will be greater than 1. In general, the largest eigenvalue will have a condition index of 1 and the other condition indices for every other eigenvalue will be larger than one. T</p>
+<p>The condition number of the correlation matrix is equivalent to the condition index for the smallest eigenvalue, that is,</p>
+<p><span class="math display">\[
+\kappa = \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}}
+\]</span></p>
+<p>If the condition number is small, it indicates that the predictors are not collinear, whereas large condition numbers are evidence supporting collinearity.</p>
+<p>From empirical work, a condition number between 10 and 30 indicates the presence of multicollinearity. When the condition number is larger than 30, the multicollinearity is regarded as strong and corrective action will almost surely need to be taken. Below we compute the condition indices and the condition number for our empirical example.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort eigenvalues from largest to smallest</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">=</span> <span class="fu">sort</span>(<span class="fu">eigen</span>(r_xx)<span class="sc">$</span>values, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
@@ -754,13 +766,19 @@ $vectors
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1.000000  8.585586 19.258359</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute condition number directly</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">max</span>(lambda) <span class="sc">/</span> <span class="fu">min</span>(lambda))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.25836</code></pre>
 </div>
-<p>The condition number of the correlation matrix, <span class="math inline">\(\kappa = 19.26\)</span>, suggests strong collinearity among the predictors.</p>
+</div>
+<p>The condition number of the correlation matrix, <span class="math inline">\(\kappa = 19.26\)</span>, suggests there is collinearity among the predictors.</p>
 <p><br></p>
 </section>
 </section>
 <section id="fixing-collinearity-in-practice" class="level1">
 <h1>Fixing Collinearity in Practice</h1>
+<p>The presence of collinearity in the predictor space leads to several potential problems, namely that the estimates of the regression coefficients may not be stable (small changes in the data may lead to big changes in the estimates), and that the standard errors/sampling variances are inflated.</p>
 <p>Although there are several solutions to “fix” collinearity in practice, none are a magic bullet. Here are three potential fixes:</p>
 <ul>
 <li>Re-specify the model

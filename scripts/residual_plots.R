@@ -14,7 +14,7 @@ residual_plots = function(object){
   p2 = ggplot(data = aug_lm, aes(x =.fitted, y = .resid)) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     geom_point() +
-    geom_smooth(method = "loess", se = TRUE, n = 50, span = 0.67) +
+    geom_smooth(method = "loess", se = TRUE) +
     theme_light() +
     xlab("Fitted values") +
     ylab("Residuals")

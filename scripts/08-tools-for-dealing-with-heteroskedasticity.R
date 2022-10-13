@@ -6,7 +6,7 @@ library(broom)
 library(car)
 library(corrr)
 library(tidyverse)
-librafry(patchwork)
+library(patchwork)
 
 
 
@@ -32,7 +32,7 @@ ggplot(data = slid, aes(x = age, y = wages)) +
   ylab("Hourly wage rate")
 
 
-ggplot(data = slid, aes(x = age, y = education)) +
+ggplot(data = slid, aes(x = education, y = wages)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   theme_bw() +
@@ -40,7 +40,7 @@ ggplot(data = slid, aes(x = age, y = education)) +
   ylab("Hourly wage rate")
 
 
-ggplot(data = slid, aes(x = male, y = education)) +
+ggplot(data = slid, aes(x = male, y = wages)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   theme_bw() +
@@ -69,9 +69,9 @@ residual_plots = function(object){
   p2 = ggplot(data = aug_lm, aes(x =.fitted, y = .resid)) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     geom_point() +
-    geom_smooth(method = "loess", se = TRUE, n = 50, span = 0.67) +
+    geom_smooth(method = "loess", se = TRUE) +
     theme_light() +
-    xlab("FItted values") +
+    xlab("Fitted values") +
     ylab("Residuals")
   
   

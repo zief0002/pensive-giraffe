@@ -1,5 +1,5 @@
 ---
-title: "`r paste(emo::ji('memo'), 'Diagnosing Collinearity')`"
+title: "📝 Diagnosing Collinearity"
 format:
   html:
     code-copy: true
@@ -353,9 +353,9 @@ $$
 - When there is nonperfect collinearity then $0 < \lambda_i < 1$, and the sum of the reciprocal values will be greater than the number of predictors, $\sum_{i=1}^k \frac{1}{\lambda_i} > k$.
 
 
-<aside>
+:::math
 In an orthogonal matrix, the eigenvalues are all $\pm1$, but since the correlation matrix is positive semidefinite, the eigenvalues are all $+1$.
-</aside>
+:::
 
 Larger sums of the reciprocal values of the eigenvalues is indicative of higher degrees of collinearity. In practice, we might use some cutoff to indicate when the collinearity is problematic. One such cutoff used is, if the sum is greater than five times the number of predictors, it is a sign of collinearity.
 
@@ -405,23 +405,43 @@ We compare the sum of the reciprocal of the eigenvalues to five times the number
 
 ## Condition Indices
 
-A third common diagnostic measure of collinearity, called *condition indices*, is also based on the eigenvalues of the model predictors' correlation matrix. Each eigenvalue has an associated value called its condition index and denoted $\kappa$. The *j*th condition index is defined as
+A condition number for a matrix and computational task quantifies how sensitive the result is to perturbations in the input data and to roundoff errors made during the solution process. If minor changes to the matrix elements result in large differences in the computation (say of the inverse), we say that the matrix is "ill-conditioned". It is important to note that a condition number applies not only to a particular matrix, but also to the particular computation being carried out. That is, a matrix can be ill-conditioned for inversion while the eigenvalue problem is well-conditioned.
+
+A third common diagnostic measure of collinearity is to compute the *condition number* of the correlation matrix of the model predictors. This tells us whether small changes in the data will lead to large changes in regression coefficient estimates. To compute the condition number, we need to compute the *condition index* for each of the eigenvalues of the correlation matrix based on the model predictors. Each eigenvalue has an associated condition index, and the *j*th eigenvalue's condition index is denoted $\kappa_j$, where,
 
 $$
-\kappa_j = \sqrt{\frac{\lambda_1}{\lambda_j}}
+\kappa_j = \sqrt{\frac{\lambda_{\mathrm{Max}}}{\lambda_j}}
 $$
 
-for $j=1,2,3,\ldots,k$, where $\lambda_1$ is the first (largest) eigenvalue and $\lambda_j$ is the *j*th eigenvalue.
-
-The first condition index, $\kappa_1$, will always be equal to 1, and the other condition indices will be larger than one. The largest condition index will be,
+and $\lambda__{\mathrm{Max}$ is the largest eigenvalue. The largest eigenvalue will have a condition index of,
 
 $$
-\kappa_k = \sqrt{\frac{\lambda_1}{\lambda_k}}
+\begin{split}
+\kappa_{\lambda_\mathrm{Max}} &= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Max}}} \\[1ex]
+&= 1
+\end{split}
 $$
 
-where $\lambda_k$ is the smallest eigenvalue. This is referred to as the *condition number* of the correlation matrix. If the condition number is small, it indicates that the predictors are not collinear, whereas large condition numbers are evidence supporting collinearity.
 
-From empirical work, condition numbers that exceed 15 are typically problematic (this indicates that the maximum eigenvalue is more than 225 times greater than the maximum eigenvalue). When the condition number exceeds 30, corrective action will almost surely need to be taken. Here we compute the condition indices and the condition number for our empirical example.
+The smallest eigenvalue will have a condition index of
+
+$$
+\kappa_{\lambda_\mathrm{Min}} &= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}} 
+$$
+
+This value will be larger than 1 since $\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}$ will be greater than 1. In general, the largest eigenvalue will have a condition index of 1 and the other condition indices for every other eigenvalue will be larger than one. T
+
+
+The condition number of the correlation matrix is equivalent to the condition index for the smallest eigenvalue, that is,
+
+
+$$
+\kappa = \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}}
+$$
+
+If the condition number is small, it indicates that the predictors are not collinear, whereas large condition numbers are evidence supporting collinearity.
+
+From empirical work, a condition number between 10 and 30 indicates the presence of multicollinearity. When the condition number is larger than 30, the multicollinearity is regarded as strong and corrective action will almost surely need to be taken. Below we compute the condition indices and the condition number for our empirical example.
 
 ```{r}
 # Sort eigenvalues from largest to smallest
@@ -432,15 +452,20 @@ lambda
 
 # Compute condition indices
 sqrt(max(lambda) / lambda)
+
+# Compute condition number directly
+sqrt(max(lambda) / min(lambda))
 ```
 
-The condition number of the correlation matrix, $\kappa = 19.26$, suggests strong collinearity among the predictors.
+The condition number of the correlation matrix, $\kappa = 19.26$, suggests there is collinearity among the predictors. 
 
 
 <br />
 
 
 # Fixing Collinearity in Practice
+
+The presence of collinearity in the predictor space leads to several potential problems, namely that the estimates of the regression coefficients may not be stable (small changes in the data may lead to big changes in the estimates), and that the standard errors/sampling variances are inflated.
 
 Although there are several solutions to "fix" collinearity in practice, none are a magic bullet. Here are three potential fixes:
 

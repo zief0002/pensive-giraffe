@@ -197,17 +197,30 @@ Unit 04: COLLINEARITY
 </td>
 </tr>
 
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Oct. 25</td> -->
-<!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <a class="my-link" href="readings/10-pca-via-svd.html"><span class="fa fa-book"></span></a> -->
-<!-- </td> -->
-<!-- <td style="vertical-align:middle;">Principal Components Analysis via Singular Value Decomposition</td> -->
-<!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <a class = "my-link" href="posts/2021-10-05-notes-pca-via-svd"><span class="fas fa-link"></span></a> -->
-<!-- </td> -->
-<!-- </tr> -->
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Oct. 25</td>
+<td align="center" style="vertical-align:middle;">
+  <a class="my-link" href="readings/10-pca-via-svd.html"><span class="fa fa-book"></span></a>
+</td>
+<td style="vertical-align:middle;">Principal Components Analysis via Singular Value Decomposition</td>
+<td align="center" style="vertical-align:middle;">
+  <a class = "my-link" href="notes/08-pca-via-svd.html"><span class="fas fa-link"></span></a>
+</td>
+</tr>
+
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Oct. 27</td>
+<td align="center" style="vertical-align:middle;">
+  <!-- <a class="my-link" href="readings/10-pca-via-svd.html"><span class="fa fa-book"></span></a> -->
+</td>
+<td style="vertical-align:middle;">Principal Components on Different Matrices</td>
+<td align="center" style="vertical-align:middle;">
+  <!-- <a class = "my-link" href="notes/08-pca-via-svd.html"><span class="fas fa-link"></span></a> -->
+</td>
+</tr>
+
 
 <!-- <tr> -->
 <!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
