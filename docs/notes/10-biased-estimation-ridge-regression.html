@@ -253,6 +253,7 @@ div.csl-indent {
   <li><a href="#estimating-sampling-variance" id="toc-estimating-sampling-variance" class="nav-link" data-scroll-target="#estimating-sampling-variance">Estimating Sampling Variance</a></li>
   </ul></li>
   <li><a href="#biasvariance-tradeoff-revisited" id="toc-biasvariance-tradeoff-revisited" class="nav-link" data-scroll-target="#biasvariance-tradeoff-revisited">Bias–Variance Tradeoff: Revisited</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -348,7 +349,7 @@ Note that <span class="math inline">\(\lambda\)</span> here is NOT an eigenvalue
 <p><span class="math display">\[
 \mathbf{b} = (\mathbf{X}^{\intercal}\mathbf{X})^{-1}\mathbf{X}^{\intercal}\mathbf{y}
 \]</span></p>
-<p>Under collinearity, the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix is ill-conditioned. (A matrix is said to be <em>ill-conditioned</em> if it has a high condition number which is computed as <span class="math inline">\(\mathrm{Condition~Number} = \frac{\vert\lambda_{\mathrm{Max}}\vert}{\vert\lambda_{\mathrm{Min}}\vert}\)</span>.) This ill-conditioning results in inaccuracy when we compute the inverse of the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix, which translates into bad estimates of the coefficients and standard errors.</p>
+<p>Under collinearity, the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix is ill-conditioned. (A matrix is said to be <em>ill-conditioned</em> if it has a high condition number, meaning that small changes in the data impact the regression results. This ill-conditioning results in inaccuracy when we compute the inverse of the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix, which translates into bad estimates of the coefficients and standard errors.</p>
 <p>To see this, consider our EEO example data. We first standardize the variables (so we can omit the ones column in the design matrix) using the <code>scale()</code> function. Note that the output of the <code>scale()</code> function is a matrix. Then, we will select the predictors using indexing and compute the condition number for the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize all variables in the eeo data frame</span></span>
@@ -371,9 +372,9 @@ Note that <span class="math inline">\(\lambda\)</span> here is NOT an eigenvalue
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>eig_val <span class="ot">=</span> <span class="fu">eigen</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X)<span class="sc">$</span>values</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute condition number</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="fu">max</span>(eig_val)) <span class="sc">/</span> <span class="fu">abs</span>(<span class="fu">min</span>(eig_val))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">max</span>(eig_val) <span class="sc">/</span> <span class="fu">min</span>(eig_val))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 370.8844</code></pre>
+<pre><code>[1] 19.25836</code></pre>
 </div>
 </div>
 <p>We can inflate the diagonal elements of <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> to better condition the matrix. This, hopefully, leads to more stability in the inverse matrix and produces better (albeit biased) coefficient estimates. To do this, we can add some constant amount (<span class="math inline">\(\lambda\)</span>) to each of the diagonal elements of <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span>, prior to finding the inverse. This can be expressed as:</p>
@@ -392,12 +393,12 @@ Note that <span class="math inline">\(\lambda\)</span> here is NOT an eigenvalue
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>eig_val_inflated <span class="ot">=</span> <span class="fu">eigen</span>(inflated)<span class="sc">$</span>values</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute condition number</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="fu">max</span>(eig_val_inflated)) <span class="sc">/</span> <span class="fu">abs</span>(<span class="fu">min</span>(eig_val_inflated))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">max</span>(eig_val_inflated) <span class="sc">/</span> <span class="fu">min</span>(eig_val_inflated))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20.25629</code></pre>
+<pre><code>[1] 4.500699</code></pre>
 </div>
 </div>
-<p>The condition number has decreased from 359 to 20.72. Adding 10 to each diagonal element of the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix resulted in a better conditioned matrix!</p>
+<p>The condition number has decreased from 19.26 (problematic collinearity) to 4.5 (non-collinear). Adding 10 to each diagonal element of the <span class="math inline">\(\mathbf{X}^{\intercal}\mathbf{X}\)</span> matrix resulted in a better conditioned matrix!</p>
 <p><br></p>
 </section>
 </section>
@@ -598,7 +599,7 @@ school  -0.8491600</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11-biased-estimation-ridge-regression_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="10-biased-estimation-ridge-regression_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Ridge plot showing the size of the standardized regression coefficients for <span class="math inline">\(\lambda\)</span> values between 0 (OLS) and 100.</figcaption><p></p>
 </figure>
 </div>
@@ -640,7 +641,7 @@ tr(\mathbf{H}_{\mathrm{Ridge}}) =  tr(\mathbf{X}(\mathbf{X}^{\intercal}\mathbf{X
 </div>
 </div>
 <p>We want to compute the AIC value for every single one of the models associated with the <span class="math inline">\(\lambda\)</span> values from our sequence we used to produce the ridge trace plot. To do this, we will create a function that will compute the AIC from a given <span class="math inline">\(\lambda\)</span> value.</p>
-<div class="cell" data-layout-align="center" data-hash="11-biased-estimation-ridge-regression_cache/html/unnamed-chunk-12_ecdab830d9dc7cde74d6b8a2de85c129">
+<div class="cell" data-layout-align="center" data-hash="10-biased-estimation-ridge-regression_cache/html/unnamed-chunk-12_f54f015a69c3e20f918d9d1f451e1fb2">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to compute AIC based on inputted lambda value</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ridge_aic <span class="ot">=</span> <span class="cf">function</span>(lambda){</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">=</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">+</span> lambda<span class="sc">*</span><span class="fu">diag</span>(<span class="dv">3</span>)) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> y</span>
@@ -756,7 +757,7 @@ school   1.1281505</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11-biased-estimation-ridge-regression_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="10-biased-estimation-ridge-regression_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Ridge plot showing the size of the standardized regression coefficients for <span class="math inline">\(\lambda\)</span> values between 0 (OLS) and 100. The vertical dotted line is shown at <span class="math inline">\(\lambda=22.36\)</span>, the value of <span class="math inline">\(\lambda\)</span> that has the minimum GCV value.</figcaption><p></p>
 </figure>
 </div>
@@ -911,6 +912,13 @@ school   1.0999168</code></pre>
 \]</span></p>
 <p>Examining these two formulas, we can see that in the formula for bias, larger <span class="math inline">\(\lambda\)</span> values are associated with increased bias. Whereas in the formula for sampling variance, increasing <span class="math inline">\(\lambda\)</span> decreases the amount of sampling variation. This. in a nutshell, is the bias–variance tradeoff. Decreasing one of these properties tends to increase the other. The key is to find a value of <span class="math inline">\(\lambda\)</span> that minimally increases bias to maximally decrease the sampling variances.</p>
 <p><br></p>
+<div class="fyi">
+<p>While ridge regression is one of the more popular shrinkage methods used in the social sciences, there are other shrinkage methods that have been developed for dealing with collinearity, including the LASSO [Tibshirani:1996] and elastic net <span class="citation" data-cites="Zou:2005">(<a href="#ref-Zou:2005" role="doc-biblioref">Zou &amp; Hastie, 2005</a>)</span>. These methods are similar to ridge regression in that they apply a penalty to the loss function (i.e., the SSE), albeit a different penalty than ridge regression.</p>
+<p>However, both the LASSO and elastic net have been slow to be adopted by social scientists, despite both methods outperforming ridge regression in prediction accuracy and in producing simpler, more interpretable models (especially when the number of predictors is large). For more information about these methods, see <span class="citation" data-cites="James:2013">James et al. (<a href="#ref-James:2013" role="doc-biblioref">2013</a>)</span> and <span class="citation" data-cites="Goeman:2018">Goeman et al. (<a href="#ref-Goeman:2018" role="doc-biblioref">2018</a>)</span>.</p>
+</div>
+</section>
+<section id="references" class="level1">
+
 
 
 
@@ -923,6 +931,12 @@ Chatterjee, S., &amp; Hadi, A. S. (2012). <em>Regression analysis by example</em
 </div>
 <div id="ref-Goeman:2018" class="csl-entry" role="doc-biblioentry">
 Goeman, J., Meijer, R., &amp; Chaturvedi, N. (2018). <em>L1 and L2 penalized regression models</em>. R Vignette. <a href="https://cran.r-project.org/web/packages/penalized/vignettes/penalized.pdf">https://cran.r-project.org/web/packages/penalized/vignettes/penalized.pdf</a>
+</div>
+<div id="ref-James:2013" class="csl-entry" role="doc-biblioentry">
+James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2013). <em>An introduction to statistical learning: With applications in <span>R</span></em>. Springer.
+</div>
+<div id="ref-Zou:2005" class="csl-entry" role="doc-biblioentry">
+Zou, H., &amp; Hastie, T. (2005). Regularization and variable selection via the elastic net. <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em>, <em>67</em>(2), 301–320.
 </div>
 </div></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 

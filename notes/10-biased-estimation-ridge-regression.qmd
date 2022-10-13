@@ -95,7 +95,7 @@ $$
 \mathbf{b} = (\mathbf{X}^{\intercal}\mathbf{X})^{-1}\mathbf{X}^{\intercal}\mathbf{y}
 $$
 
-Under collinearity, the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix is ill-conditioned. (A matrix is said to be *ill-conditioned* if it has a high condition number which is computed as $\mathrm{Condition~Number} = \frac{\vert\lambda_{\mathrm{Max}}\vert}{\vert\lambda_{\mathrm{Min}}\vert}$.) This ill-conditioning results in inaccuracy when we compute the inverse of the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix, which translates into bad estimates of the coefficients and standard errors. 
+Under collinearity, the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix is ill-conditioned. (A matrix is said to be *ill-conditioned* if it has a high condition number, meaning that small changes in the data impact the regression results. This ill-conditioning results in inaccuracy when we compute the inverse of the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix, which translates into bad estimates of the coefficients and standard errors. 
 
 To see this, consider our EEO example data. We first standardize the variables (so we can omit the ones column in the design matrix) using the `scale()` function. Note that the output of the `scale()` function is a matrix. Then, we will select the predictors using indexing and compute the condition number for the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix.
 
@@ -112,7 +112,7 @@ head(X)
 eig_val = eigen(t(X) %*% X)$values
 
 # Compute condition number
-abs(max(eig_val)) / abs(min(eig_val))
+sqrt(max(eig_val) / min(eig_val))
 ```
 
 We can inflate the diagonal elements of $\mathbf{X}^{\intercal}\mathbf{X}$ to better condition the matrix. This, hopefully, leads to more stability in the inverse matrix and produces better (albeit biased) coefficient estimates. To do this, we can add some constant amount ($\lambda$) to each of the diagonal elements of $\mathbf{X}^{\intercal}\mathbf{X}$, prior to finding the inverse. This can be expressed as:
@@ -135,10 +135,10 @@ inflated = t(X) %*% X + 10*diag(3)
 eig_val_inflated = eigen(inflated)$values
 
 # Compute condition number
-abs(max(eig_val_inflated)) / abs(min(eig_val_inflated))
+sqrt(max(eig_val_inflated) / min(eig_val_inflated))
 ```
 
-The condition number has decreased from 359 to 20.72. Adding 10 to each diagonal element of the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix resulted in a better conditioned matrix!
+The condition number has decreased from 19.26 (problematic collinearity) to 4.5 (non-collinear). Adding 10 to each diagonal element of the $\mathbf{X}^{\intercal}\mathbf{X}$ matrix resulted in a better conditioned matrix!
 
 
 <br />
@@ -587,3 +587,16 @@ $$
 Examining these two formulas, we can see that in the formula for bias, larger $\lambda$ values are associated with increased bias. Whereas in the formula for sampling variance, increasing $\lambda$ decreases the amount of sampling variation. This. in a nutshell, is the bias--variance tradeoff. Decreasing one of these properties tends to increase the other. The key is to find a value of $\lambda$ that minimally increases bias to maximally decrease the sampling variances.
 
 <br />
+
+
+
+:::fyi
+While ridge regression is one of the more popular shrinkage methods used in the social sciences, there are other shrinkage methods that have been developed for dealing with collinearity, including the LASSO [Tibshirani:1996] and elastic net [@Zou:2005]. These methods are similar to ridge regression in that they apply a penalty to the loss function (i.e., the SSE), albeit a different penalty than ridge regression. 
+
+However, both the LASSO and elastic net have been slow to be adopted by social scientists, despite both methods outperforming ridge regression in prediction accuracy and in producing simpler, more interpretable models (especially when the number of predictors is large). For more information about these methods, see @James:2013 and @Goeman:2018.
+:::
+
+# References
+
+
+
