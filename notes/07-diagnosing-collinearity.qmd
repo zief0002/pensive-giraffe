@@ -72,6 +72,7 @@ residual_plots(lm.1)
 ```{r}
 #| fig-width: 8
 #| fig-height: 6
+#| out-width: "80%"
 #| fig-cap: "Diagnostic plots for the model that includes the main effects of faculty credentials, influence of peer groups, and measure of school facilities to predict variation in student achievement."
 # Fit the regression model
 # Index plots of several regression diagnostics
@@ -413,7 +414,7 @@ $$
 \kappa_j = \sqrt{\frac{\lambda_{\mathrm{Max}}}{\lambda_j}}
 $$
 
-and $\lambda__{\mathrm{Max}$ is the largest eigenvalue. The largest eigenvalue will have a condition index of,
+and $\lambda_{\mathrm{Max}}$ is the largest eigenvalue. The largest eigenvalue will have a condition index of,
 
 $$
 \begin{split}
@@ -426,10 +427,10 @@ $$
 The smallest eigenvalue will have a condition index of
 
 $$
-\kappa_{\lambda_\mathrm{Min}} &= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}} 
+\kappa_{\lambda_\mathrm{Min}} = \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}} 
 $$
 
-This value will be larger than 1 since $\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}$ will be greater than 1. In general, the largest eigenvalue will have a condition index of 1 and the other condition indices for every other eigenvalue will be larger than one. T
+This value will be larger than 1 since $\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}$ will be greater than 1. In general, the largest eigenvalue will have a condition index of 1 and the other condition indices for every other eigenvalue will be larger than one.
 
 
 The condition number of the correlation matrix is equivalent to the condition index for the smallest eigenvalue, that is,

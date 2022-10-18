@@ -337,7 +337,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="07-diagnosing-collinearity_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p><img src="07-diagnosing-collinearity_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Diagnostic plots for the model that includes the main effects of faculty credentials, influence of peer groups, and measure of school facilities to predict variation in student achievement.</figcaption><p></p>
 </figure>
 </div>
@@ -734,7 +734,7 @@ $vectors
 <p><span class="math display">\[
 \kappa_j = \sqrt{\frac{\lambda_{\mathrm{Max}}}{\lambda_j}}
 \]</span></p>
-<p>and <span class="math inline">\(\lambda__{\mathrm{Max}\)</span> is the largest eigenvalue. The largest eigenvalue will have a condition index of,</p>
+<p>and <span class="math inline">\(\lambda_{\mathrm{Max}}\)</span> is the largest eigenvalue. The largest eigenvalue will have a condition index of,</p>
 <p><span class="math display">\[
 \begin{split}
 \kappa_{\lambda_\mathrm{Max}} &amp;= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Max}}} \\[1ex]
@@ -743,9 +743,9 @@ $vectors
 \]</span></p>
 <p>The smallest eigenvalue will have a condition index of</p>
 <p><span class="math display">\[
-\kappa_{\lambda_\mathrm{Min}} &amp;= \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}}
+\kappa_{\lambda_\mathrm{Min}} = \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}}
 \]</span></p>
-<p>This value will be larger than 1 since <span class="math inline">\(\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}\)</span> will be greater than 1. In general, the largest eigenvalue will have a condition index of 1 and the other condition indices for every other eigenvalue will be larger than one. T</p>
+<p>This value will be larger than 1 since <span class="math inline">\(\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}\)</span> will be greater than 1. In general, the largest eigenvalue will have a condition index of 1 and the other condition indices for every other eigenvalue will be larger than one.</p>
 <p>The condition number of the correlation matrix is equivalent to the condition index for the smallest eigenvalue, that is,</p>
 <p><span class="math display">\[
 \kappa = \sqrt{\frac{\lambda_\mathrm{Max}}{\lambda_\mathrm{Min}}}

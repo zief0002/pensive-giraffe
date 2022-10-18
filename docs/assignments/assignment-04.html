@@ -227,9 +227,9 @@ e^{\prime}_i = \frac{e_i}{s_{e(-i)}\sqrt{1-h_{ii}}} \times \sqrt{w_i}
 </section>
 <section id="including-covariates" class="level1">
 <h1>Including Covariates</h1>
-<p>Now include the <code>energy</code> covariate into the model to examine the effect of socilist strength after controlling for economic development. Since the model has changed, we need to re-compute the weights and re-carry out the WLS analysis.</p>
+<p>Now include the <code>energy</code> covariate into the model to examine the effect of socialist strength after controlling for economic development. Since the model has changed, we need to re-compute the weights and re-carry out the WLS analysis.</p>
 <ol start="14" type="1">
-<li><p>Use matrix algebra to compute the empirical weights based on the two-predictor model and report the weight for the United States.</p></li>
+<li><p>Use matrix algebra to compute the empirical weights based on the two-predictor model and report the weight for the United States. (That is use matrix algebra to carry out the steps in the 5-step process of computing weights when error variances are unknown for the WLS.)</p></li>
 <li><p>Fit the two-predictor WLS model using matrix algebra. Report the fitted equation.</p></li>
 <li><p>Compute and report the standard errors of the two-predictor WLS model using matrix algebra.</p></li>
 <li><p>Using your results from Questions #14 and #15, compute and report the <em>t</em>-values and <em>p</em>-values. While you can use the output of the <code>tidy()</code>, <code>summary()</code>, or other functions that automatically compute <em>p</em>-values to check your work, use the <code>pt()</code> function to answer this question. (Show your work or syntax for full credit.)</p></li>

@@ -77,9 +77,9 @@ $$
 
 # Including Covariates
 
-Now include the `energy` covariate into the model to examine the effect of socilist strength after controlling for economic development. Since the model has changed, we need to re-compute the weights and re-carry out the WLS analysis.
+Now include the `energy` covariate into the model to examine the effect of socialist strength after controlling for economic development. Since the model has changed, we need to re-compute the weights and re-carry out the WLS analysis.
 
-14. Use matrix algebra to compute the empirical weights based on the two-predictor model and report the weight for the United States.
+14. Use matrix algebra to compute the empirical weights based on the two-predictor model and report the weight for the United States. (That is use matrix algebra to carry out the steps in the 5-step process of computing weights when error variances are unknown for the WLS.)
 
 15. Fit the two-predictor WLS model using matrix algebra. Report the fitted equation.
 
