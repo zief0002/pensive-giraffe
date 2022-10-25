@@ -55,7 +55,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 
 <tr>
 <td>Assignment 05: *Collinearity and Dimension Reduction*</td>
-<td>Nov. 01</td>
+<td>Nov. 10</td>
 <td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="assignments/assignment-05.html"><span class="fas fa-link"></span></a>
 </td>
@@ -63,7 +63,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 
 <tr>
 <td>Assignment 06: *Ridge Regression*</td>
-<td>Nov. 15</td>
+<td>Nov. 22</td>
 <td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="assignments/assignment-06.html"><span class="fas fa-link"></span></a>
 </td>
@@ -71,7 +71,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 
 <tr>
 <td>Assignment 07: *Cross-Validation*</td>
-<td>Dec. 06</td>
+<td>Dec. 08</td>
 <td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="assignments/assignment-07.html"><span class="fas fa-link"></span></a>
 </td>
@@ -79,7 +79,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 
 <tr>
 <td>Assignment 08: *Path Analysis*</td>
-<td>Dec. 15</td>
+<td>Dec. 16</td>
 <td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="assignments/assignment-08.html"><span class="fas fa-link"></span></a>
 </td>
