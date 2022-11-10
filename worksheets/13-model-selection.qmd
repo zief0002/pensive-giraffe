@@ -1,5 +1,5 @@
 ---
-title: "`r paste(emo::ji('muscle'), 'Model Selection (In-Class Activity)')`"
+title: "💪 Model Selection (In-Class Activity)"
 format:
   html:
    css: "../assets/styles.css"
@@ -9,7 +9,7 @@ date: 08-05-2022
 The data in *states-2019.csv* include statistics collected from Wikipedia, the 2019 American Community Survey, and the National Centers for Environmental Information. 
 
 - [[CSV]](https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/states-2019.csv)
-- [[Data Codebook]](codebooks/states-2019.html)
+- [[Data Codebook]](../codebooks/states-2019.html)
 
 <br />
 

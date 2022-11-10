@@ -165,13 +165,13 @@ tidy(ridge_1)
 ##################################################
 
 # Compute coefficients for ridge model
-b = solve(t(X) %*% X + 40*diag(3)) %*% t(X) %*% y
+b = solve(t(X) %*% X + 2*diag(3)) %*% t(X) %*% y
 
 # Compute residual vector
 e = y - (X %*% b)
 
 # Compute H matrix
-H = X %*% solve(t(X) %*% X + 40*diag(3)) %*% t(X)
+H = X %*% solve(t(X) %*% X + 2*diag(3)) %*% t(X)
 
 # Compute df
 df = sum(diag(H))
@@ -209,8 +209,8 @@ my_models = data.frame(
   mutate(
     AIC = ridge_aic(Lambda)
   ) %>%
-  ungroup() #Turn off the rowwise() operation
-
+  ungroup() %>% #Turn off the rowwise() operation
+  data.frame()
 
 # Find lambda associated with smallest AIC
 my_models %>% 
@@ -223,7 +223,7 @@ my_models %>%
 ##################################################
 
 # Re-fit ridge regression using lambda = 21.8
-ridge_smallest_aic = lm.ridge(achievement ~ -1 + faculty + peer + school, data = z_data, lambda = 21.8)
+ridge_smallest_aic = lm.ridge(achievement ~ -1 + faculty + peer + school, data = z_data, lambda = 21.77)
 
 # View coefficients
 tidy(ridge_smallest_aic)
@@ -238,16 +238,16 @@ tidy(ridge_smallest_aic)
 b_ols = solve(t(X) %*% X) %*% t(X) %*% y
 
 # Compute lambda(I)
-lambda = 21.8
+lambda = 21.77
 
 # Estimate bias in ridge regression coefficients
-lambda * solve(t(X) %*% X + lambda*diag(3)) %*% b_ols
+-lambda * solve(t(X) %*% X + lambda*diag(3)) %*% b_ols
 
 
 # Ridge trace
 ggplot(data = ridge_trace, aes(x = lambda, y = estimate)) +
   geom_line(aes(group = term, color = term)) +
-  geom_vline(xintercept = 22.36, linetype = "dotted") +
+  geom_vline(xintercept = 21.77, linetype = "dotted") +
   theme_bw() +
   xlab("d value") +
   ylab("Coefficient estimate") +
@@ -264,13 +264,13 @@ tidy(ridge_3)$estimate - b_ols
 ##################################################
 
 # Fit standardized model to obtain sigma^2_epsilon
-glance(lm(achievement ~ -1 + faculty + peer + school, data = z_data))
+glance(lm(achievement ~ -1 + faculty + peer + school, data = z_data))$sigma
 
 # Compute sigma^2_epsilon
 resid_var = 0.9041214 ^ 2
 
 # Compute variance-covariance matrix of ridge estimates
-W = solve(t(X) %*% X + 21.8*diag(3))
+W = solve(t(X) %*% X + 21.77*diag(3))
 var_b = resid_var * W %*% t(X) %*% X %*% W
 
 # Compute SEs
@@ -283,11 +283,11 @@ sqrt(diag(var_b))
 ##################################################
 
 # Compute t-value for school predictor
-t = 0.0998967 / 0.04089317  
+t = 0.099 / 0.0413 
 t
 
 # Compute df residual
-H = X %*% solve(t(X) %*% X + 22.36*diag(3)) %*% t(X)
+H = X %*% solve(t(X) %*% X + 21.77*diag(3)) %*% t(X)
 df_model = sum(diag(H))
 df_residual = 69 - df_model
 
@@ -296,8 +296,8 @@ p = pt(-abs(t), df = df_residual) * 2
 p
 
 # Compute CI
-0.0998967 - qt(p = 0.975, df = df_residual) * 0.04089317  
-0.0998967 + qt(p = 0.975, df = df_residual) * 0.04089317  
+0.099 - qt(p = 0.975, df = df_residual) * 0.0413 
+0.099 + qt(p = 0.975, df = df_residual) * 0.0413 
 
 
 

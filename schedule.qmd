@@ -166,7 +166,7 @@ The calendar below lists the tentative course topics. The dates listed are subje
 </tr>
 
 
-Unit 04: COLLINEARITY
+<!-- Unit 04: COLLINEARITY -->
 
 
 <tr>
@@ -223,11 +223,11 @@ Unit 04: COLLINEARITY
 <!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
 <!-- <td>Oct. 27</td> -->
 <!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <!-- <a class="my-link" href="readings/10-pca-via-svd.html"><span class="fa fa-book"></span></a> --> -->
+<!--   <!-- <a class="my-link" href="readings/10-pca-via-svd.html"><span class="fa fa-book"></span></a> -->
 <!-- </td> -->
 <!-- <td style="vertical-align:middle;">Principal Components on Different Input Matrices</td> -->
 <!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <!-- <a class = "my-link" href="notes/08-pca-via-svd.html"><span class="fas fa-link"></span></a> --> -->
+<!--   <!-- <a class = "my-link" href="notes/08-pca-via-svd.html"><span class="fas fa-link"></span></a> -->
 <!-- </td> -->
 <!-- </tr> -->
 
@@ -269,19 +269,19 @@ Unit 04: COLLINEARITY
 <!-- Unit 05: MODEL SELECTION -->
 
 
-<!-- <tr> -->
-<!-- <td colspan="5"><b>Unit 05: Model Selection</b></td> -->
-<!-- </tr> -->
+<tr>
+<td colspan="5"><b>Unit 05: Model Selection</b></td>
+</tr>
 
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Nov. 15</td> -->
-<!-- <td align="center" style="vertical-align:middle;"></td> -->
-<!-- <td style="vertical-align:middle;">Model Selection Activity</td> -->
-<!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <a class = "my-link" href="worksheets/13-model-selection.html"><span class="fas fa-link"></span></a> -->
-<!-- </td> -->
-<!-- </tr> -->
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Nov. 15</td>
+<td align="center" style="vertical-align:middle;"></td>
+<td style="vertical-align:middle;">Model Selection Activity</td>
+<td align="center" style="vertical-align:middle;">
+  <a class = "my-link" href="worksheets/13-model-selection.html"><span class="fas fa-link"></span></a>
+</td>
+</tr>
 
 
 <!-- <tr> -->
