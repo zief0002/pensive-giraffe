@@ -215,10 +215,12 @@ tab_01 = data.frame(
 )
 
 kable(tab_01, 
+      format = "html",
       digits = 3, 
       row.names = FALSE, 
-      col.names = c("Predictor", "$\\lambda=0$", "$\\lambda=0.1$"),
-      caption = "Comparison of the coefficients from the OLS ($\\lambda=0$) and the ridge regression using $\\lambda=0.1$ based on the standardized data.",
+      escape = FALSE,
+      col.names = c("Predictor", "&lambda;=0", "&lambda;=0.1"),
+      caption = "Comparison of the coefficients from the OLS (&lambda;=0) and the ridge regression using &lambda;=0.1 based on the standardized data.",
       
       ) %>%
   kable_classic(full_width = TRUE)
@@ -249,9 +251,11 @@ tab_02 = data.frame(
 
 kable(tab_02,
       digits = 3,
+      format = "html",
+      escape = TRUE,
       row.names = FALSE,
-      col.names = c("Predictor", "$\\lambda=0$", "$\\lambda=0.1$", "$\\lambda=1$", "$\\lambda=10$"),
-      caption = "Comparison of the coefficients from the OLS ($\\lambda=0$) and three ridge regressions (using $\\lambda=0.1$, $\\lambda=1$, and $\\lambda=10$) based on the standardized data. The condition numbers for the $\\mathbf{X}^{\\intercal}\\mathbf{X} + \\lambda\\mathbf{I}$ matrix are also provided."
+      col.names = c("Predictor", "&lambda;=0", "&lambda;=0.1", "&lambda;=1", "&lambda;=10"),
+      caption = "Comparison of the coefficients from the OLS (&lambda;=0) and three ridge regressions (using &lambda;=0.1, &lambda;=1, and &lambda;=10) based on the standardized data. The condition numbers for the <b>X</b><sup>T</sup><b>X</b> + &lambda;<b>I</b> matrix are also provided."
       )  %>%
   kable_classic(full_width = TRUE) %>%
   row_spec(4, bold = TRUE, background = "#56B4E9")
@@ -364,7 +368,7 @@ To be able to evaluate which $\lambda$ value is assocuated with the lowest AIC, 
 
 ```{r}
 # Create data frame with column of lambda values
-# Create a new column by usingthe ridge_aic() function for each row
+# Create a new column by using the ridge_aic() function for each row
 my_models = data.frame(
   Lambda = seq(from = 0, to = 100, by = 0.01)
   ) %>%
@@ -380,22 +384,22 @@ my_models %>%
 ```
 
 
-A $\lambda$ value of 22.36 produces the smallest AIC value, so this is the $\lambda$ value we will adopt.
+A $\lambda$ value of 21.77 produces the smallest AIC value, so this is the $\lambda$ value we will adopt.
 
 
 ```{r}
-# Re-fit ridge regression using lambda = 22.36
-ridge_smallest_aic = lm.ridge(achievement ~ -1 + faculty + peer + school, data = z_data, 
-                              lambda = 22.36)
+# Re-fit ridge regression using lambda = 21.77
+ridge_smallest_aic = lm.ridge(achievement ~ -1 + faculty + peer + school, 
+                              data = z_data, lambda = 21.77)
 
 # View coefficients
 tidy(ridge_smallest_aic)
 ```
 
-Based on using $\lambda=22.36$, the fitted ridge regression model is:
+Based on using $\lambda=21.77$, the fitted ridge regression model is:
 
 $$
-\hat{\mathrm{Achievement}}^{\star}_i = 0.115(\mathrm{Faculty}^{\star}_i) + 0.173(\mathrm{Peer}^{\star}_i) + 0.099(\mathrm{School}^{\star}_i)
+\hat{\mathrm{Achievement}}^{\star}_i = 0.115(\mathrm{Faculty}^{\star}_i) + 0.174(\mathrm{Peer}^{\star}_i) + 0.099(\mathrm{School}^{\star}_i)
 $$
 
 <br />
@@ -433,10 +437,10 @@ There is no bias in any of the OLS coefficients. Of course, as $\lambda$ increas
 b_ols = solve(t(X) %*% X) %*% t(X) %*% y
 
 # Compute lambda(I)
-lambda_I = 22.36*diag(3)
+lambda_I = 21.77*diag(3)
 
 # Estimate bias in ridge regression coefficients
--22.36 * solve(t(X) %*% X + lambda_I) %*% b_ols
+-21.77 * solve(t(X) %*% X + lambda_I) %*% b_ols
 ```
 
 It looks like the faculty and peer coefficients are biased downward and the school coefficient is biased upward in our ridge regression model. We could also see this in the ridge trace plot we created earlier.
@@ -445,11 +449,11 @@ It looks like the faculty and peer coefficients are biased downward and the scho
 #| fig-width: 8
 #| fig-height: 6
 #| out-width: "70%"
-#| fig-cap: "Ridge plot showing the size of the standardized regression coefficients for $\\lambda$ values between 0 (OLS) and 100. The vertical dotted line is shown at $\\lambda=22.36$, the value of $\\lambda$ that has the minimum GCV value."
+#| fig-cap: "Ridge plot showing the size of the standardized regression coefficients for $\\lambda$ values between 0 (OLS) and 100. The vertical dotted line is shown at $\\lambda=21.77$, the value of $\\lambda$ that has the minimum GCV value."
 # Ridge trace
 ggplot(data = ridge_trace, aes(x = lambda, y = estimate)) +
   geom_line(aes(group = term, color = term)) +
-  geom_vline(xintercept = 22.36, linetype = "dotted") +
+  geom_vline(xintercept = 21.77, linetype = "dotted") +
   theme_bw() +
   xlab("d value") +
   ylab("Coefficient estimate") +
@@ -460,7 +464,7 @@ In this plot, the estimates for the peer and faculty coefficients are being shru
 
 ```{r}
 # Difference b/w OLS and ridge coefficients
-tidy(ridge_3)$estimate - b_ols
+tidy(ridge_smallest_aic)$estimate - b_ols
 ```
 
 <br />
@@ -519,7 +523,7 @@ glance(lm(achievement ~ -1 + faculty + peer + school, data = z_data))
 resid_var = 0.9041214 ^ 2
 
 # Compute variance-covariance matrix of ridge estimates
-W = solve(t(X) %*% X + 22.36*diag(3))
+W = solve(t(X) %*% X + 21.77*diag(3))
 var_b = resid_var * W %*% t(X) %*% X %*% W
 
 # Compute SEs
@@ -529,7 +533,8 @@ sqrt(diag(var_b))
 
 Comparing these SEs to the SEs from the OLS regression:
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 tab_01 = data.frame(
   Predictor = c("Faculty", "Peer", "School"),
   OLS = tidy(lm(achievement ~ -1 + faculty + peer + school, data = z_data))$std.error,
@@ -537,10 +542,12 @@ tab_01 = data.frame(
 )
 
 kable(tab_01, 
+      format = "html",
+      escape = TRUE,
       digits = 3, 
       row.names = FALSE, 
-      col.names = c("Predictor", "$\\lambda=0$", "$\\lambda=22.36$"),
-      caption = "Comparison of the standard errors from the OLS ($\\lambda=0$) and ridge regression ($\\lambda=22.36$) based on the standardized data.",
+      col.names = c("Predictor", "&lambda;=0", "&lambda;=21.77"),
+      caption = "Comparison of the standard errors from the OLS (&lambda;=0) and ridge regression (&lambda;;=21.77) based on the standardized data.",
       
       ) %>%
   kable_classic_2(full_width = TRUE)
@@ -550,12 +557,12 @@ Based on this comparison, we can see that the standard errors from the ridge reg
 
 ```{r}
 # Compute t-value for school predictor
-t = 0.0998967 / 0.04089317  
+t = 0.09944444 / 0.04133673 
 t
 
 
 # Compute df residual
-H = X %*% solve(t(X) %*% X + 22.36*diag(3)) %*% t(X)
+H = X %*% solve(t(X) %*% X + 21.77*diag(3)) %*% t(X)
 df_model = sum(diag(H))
 df_residual = 69 - df_model
 
@@ -564,11 +571,11 @@ p = pt(-abs(t), df = df_residual) * 2
 p
 
 # Compute CI
-0.0998967 - qt(p = 0.975, df = df_residual) * 0.04089317  
-0.0998967 + qt(p = 0.975, df = df_residual) * 0.04089317  
+0.09944444 - qt(p = 0.975, df = df_residual) * 0.04133673 
+0.09944444 + qt(p = 0.975, df = df_residual) * 0.04133673
 ```
 
-This suggests that after controlling for peer influence and faculty credential, there is evidence of an effect of school facilities on student achievement ($p=.017$). The uncertainty in the 95% CI suggests that the true partial effect of school facilities is between 0.018 and 0.181. The empirical evidence is pointing toward a slight positive effect of school facilities.
+This suggests that after controlling for peer influence and faculty credential, there is evidence of an effect of school facilities on student achievement ($p=.019$). The uncertainty in the 95% CI suggests that the true partial effect of school facilities is between 0.017 and 0.182. The empirical evidence is pointing toward a slight positive effect of school facilities.
 
 <br />
 

@@ -483,7 +483,7 @@ $$
 To illustrate WLS, consider the following data which includes average ACT scores for a classroom of students, ACT score for the teacher, and the standard deviation of the class ACT scores.
 
 ```{r}
-#| echo:false
+#| echo: false
 data.frame(
   class_act = c(17.3, 17.1, 16.4, 16.4, 16.1, 16.2),
   teacher_act = c(21, 20 , 19, 18, 17, 16),

@@ -1,6 +1,7 @@
 # Ignore these files
 /.quarto/
 .Rproj.user
+.DS_Store
 
 # Ignore these directories
 _posts
