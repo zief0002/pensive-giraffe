@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-08-05">
 
-<title>EPsy 8264 - r paste(emo::ji('memo'), 'Regression Diagnostics')</title>
+<title>EPsy 8264 - 📝 Regression Diagnostics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,6 +123,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+<script src="../site_libs/kePrint/kePrint.js"></script>
+<link href="../site_libs/lightable/lightable.css" rel="stylesheet">
 <link href="../site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable/js/pagedtable.js"></script>
 <script src="https://kit.fontawesome.com/e5da75ca36.js" crossorigin="anonymous"></script>
@@ -226,7 +228,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#effect-of-female-education-level" id="toc-effect-of-female-education-level" class="nav-link active" data-scroll-target="#effect-of-female-education-level">Effect of Female Education Level</a></li>
   <li><a href="#identifying-extreme-observations" id="toc-identifying-extreme-observations" class="nav-link" data-scroll-target="#identifying-extreme-observations">Identifying Extreme Observations</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#measuring-leverage" id="toc-measuring-leverage" class="nav-link" data-scroll-target="#measuring-leverage">Measuring Leverage</a></li>
+  <li><a href="#regression-outliers" id="toc-regression-outliers" class="nav-link" data-scroll-target="#regression-outliers">Regression Outliers</a></li>
   </ul>
 </nav>
     </div>
@@ -260,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<p>In this set of notes, we will give a brief introduction to empirical diagnostics to detect extreme observations. We will use the <a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv">contracption.csv</a> data to evaluate the effect of fermale education level on contraception rates.</p>
+<p>In this set of notes, we will give a brief introduction to empirical diagnostics to detect extreme observations. We will use the <a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv">contraception.csv</a> data to evaluate the effect of female education level on contraception rates.</p>
 <ul>
 <li><a href="https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv">[CSV]</a></li>
 <li><a href="../codebooks/contraception.html">[Codebook]</a></li>
@@ -312,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Female education level"</span>) <span class="sc">+</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Contraceptive rate"</span>) <span class="sc">+</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  ggsci<span class="sc">::</span><span class="fu">scale_color_d3</span>() <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -392,7 +395,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="identifying-extreme-observations" class="level1">
 <h1>Identifying Extreme Observations</h1>
 <p>In a regression analysis, there are several ways in which an observation may be extreme. The figure below shows three different ways in which an observation may be extreme.</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="03-regression-diagnostics-2023_cache/html/unnamed-chunk-7_92055cfe022944236574ff06868f83db">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -403,25 +406,201 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>In Panel (a), the extreme observation has a large residual, but it’s <em>x</em>-value is similar to the <em>x</em>-values of the other observations. In Panel (b), the extreme observation has a large <em>x</em>-value relative to the other observations’ <em>x</em>-values, but it does not have a large residual. In Panel (c), the extreme observation has both a large <em>x</em>-value relative to the other observations’ <em>x</em>-values, and a large residual.</p>
-<p>With extreme observations, we worry about whether the regression cioefficients, and thus the line, will be impacted. You can see how the regression line changes for each of these three types of outliers in the plot below.</p>
+<p>When an observation has a large residual relative to the other observations we call it a <em>regression outlier</em>. That is, a regression outlier has an unusual outcome value given its predictor values. As such, we might identify the extreme observation in Panels (a) and (c) as regression outliers, while the extreme observations in Panel (b) would likely not be identified as a regression outlier. We identify extreme observations in the <em>x</em>-direction as having <em>high leverage</em>. Leverage is simply a measure of how far away an observation is from from the mean value in the predictor space. So the extreme observations in Panels (b) and (c) would have high leverage, whereas the extreme observation in Panel (a) would have low leverage.</p>
+<p>With extreme observations, we worry about whether the regression coefficients, and thus the line, will be impacted. You can see how the regression line changes for each of these three types of extreme observation in the plot below.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="03-regression-diagnostics-2023_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Three different ways in which an observation may be extreme. The greenish observation is the extreme observation. The regression line is also displayed for the observations.</figcaption><p></p>
+<p><img src="03-regression-diagnostics-2023_files/figure-html/unnamed-chunk-8-1.gif" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Three different ways in which an observation may be extreme. The greenish observation is the extreme observation. The regression line is also displayed for the observations. The animation shows how the regression line changes as a result of removing the extreme observation.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
+<p>In Panels (a) and (b) removing the extreme observation did not have much of an effect on the regression line. In contrast, removing the extreme observation from Panel (c) resulted in a big change in the regression line. We would say that the extreme observation in Panel (c) is an <em>influential</em> observation—it influenced the location of the regression line (i.e., it influenced the coefficients). The extreme observations in Panels (a) and (b), on the other hand, are not influential observations. Importantly, observations can be extreme without impacting the regression coefficients. It is the influential observations that are problematic, since they can have a large impact on understanding the effects of the different predictors.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;"><caption>Properties of the extreme observations in terms of whether they are a regression outlier, the amount of leverage, and whether they influence the regression coefficients.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Panel </th>
+   <th style="text-align:left;"> Regression Outlier </th>
+   <th style="text-align:left;"> Leverage </th>
+   <th style="text-align:left;"> Influential </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (a) </td>
+   <td style="text-align:left;"> Yes </td>
+   <td style="text-align:left;"> Low </td>
+   <td style="text-align:left;"> No </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> (b) </td>
+   <td style="text-align:left;"> No </td>
+   <td style="text-align:left;"> High </td>
+   <td style="text-align:left;"> No </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> (c) </td>
+   <td style="text-align:left;"> Yes </td>
+   <td style="text-align:left;"> High </td>
+   <td style="text-align:left;"> Yes </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>From this table, we can see that it is the combination of leverage with being a regression outlier that produces influence on the regression coefficients. Heuristically,</p>
+<p><span class="math display">\[
+\mathrm{Influence} = \mathrm{Leverage} \times \mathrm{Outlyingness}
+\]</span></p>
+<p>In the next sections, we will look at different measures used by statisticians and applied scientists to quantify these properties for the observations in a data set.</p>
+<p><br></p>
 </section>
-<section id="section" class="level1">
-<h1></h1>
+<section id="measuring-leverage" class="level1">
+<h1>Measuring Leverage</h1>
+<p>Leverage is simply a measure of how far away an observation is from from the mean value in the predictor space.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> To measure the leverage of an observation, we compute $h_{ii}, which is referred to as a <em>hat-value</em>. The hat-values are the diagonal elements of the <strong>H</strong> matrix where,</p>
+<p><span class="math display">\[
+\mathbf{H} = \mathbf{X}(\mathbf{X}^\intercal\mathbf{X})^{-1}\mathbf{X}^\intercal
+\]</span></p>
+<p>Recall that this matrix was referred to as the hat-matrix since we could express the predicted values (<span class="math inline">\(\hat{y}_i\)</span>) as a function of the hat-matrix, namely,</p>
+<p><span class="math display">\[
+\hat{\mathbf{Y}} = \mathbf{HY}
+\]</span> Writing this out,</p>
+<p><span class="math display">\[
+\begin{bmatrix} \hat{y}_1 \\ \hat{y}_2 \\\hat{y}_3 \\ \vdots \\ \hat{y}_n \end{bmatrix} = \begin{bmatrix} \hat{h}_{11} &amp; \hat{h}_{12} &amp; \hat{h}_{13} &amp; \ldots &amp; \hat{h}_{1n}\\ \hat{h}_{21} &amp; \hat{h}_{22} &amp; \hat{h}_{23} &amp; \ldots &amp; \hat{h}_{2n} \\ \hat{h}_{31} &amp; \hat{h}_{32} &amp; \hat{h}_{33} &amp; \ldots &amp; \hat{h}_{3n} \\ \vdots \\ \hat{h}_{n1} &amp; \hat{h}_{n2} &amp; \hat{h}_{n3} &amp; \ldots &amp; \hat{h}_{nn} \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ \vdots \\ y_n \end{bmatrix}
+\]</span></p>
+<p>This means we can compute the fitted value for the <em>i</em>th observation, <span class="math inline">\(\hat{y}_i\)</span>, as:</p>
+<p><span class="math display">\[
+\hat{y}_i = h_{i1}(y_1) + h_{i2}(y_2) + h_{i3}(y_3) + \ldots + h_{in}(y_n)
+\]</span></p>
+<p>Each fitted value is a weighted combination of the outcome values, where the weights are the <span class="math inline">\(h_{ij}\)</span> values. That is, the weight is a measure of how much each outcome value is contributing to the fitted value. For example if <span class="math inline">\(h_{ij}\)</span> is large, it would indicate that <span class="math inline">\(y_i\)</span> has a large impact on the value of <span class="math inline">\(\hat{y}_i\)</span>. It turns out that mathematically,</p>
+<p><span class="math display">\[
+h_{ii} = \sum_{j=1}^n h_{ij}^2
+\]</span> That is, the values on the diagonal of the hat-matrix (the hat-values) are a summary of the contribution of all the outcome values on <span class="math inline">\(y_i\)</span>. Because of this, we can use <span class="math inline">\(h_{ii}\)</span> as a measure of leverage for the <em>i</em>th observation. Below, we the data from the observations used in the earlier Panel (b) to compute leverage values.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["x"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1.00","2":"2.0"},{"1":"2.00","2":"1.8"},{"1":"2.04","2":"2.9"},{"1":"3.00","2":"2.2"},{"1":"3.03","2":"3.6"},{"1":"4.00","2":"3.0"},{"1":"15.00","2":"7.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create X-matrix</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="dv">1</span>, <span class="fl">2.0</span>, <span class="fl">2.04</span>, <span class="fl">3.0</span>, <span class="fl">3.03</span>, <span class="dv">4</span>, <span class="dv">15</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">7</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute and view H-matrix</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>H <span class="ot">=</span> X <span class="sc">%*%</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>H</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           [,1]        [,2]        [,3]       [,4]       [,5]      [,6]
+[1,]  0.2209034  0.19722229  0.19627505 0.17354115 0.17283071 0.1498600
+[2,]  0.1972223  0.18072658  0.18006675 0.16423087 0.16373600 0.1477352
+[3,]  0.1962750  0.18006675  0.17941842 0.16385846 0.16337221 0.1476502
+[4,]  0.1735411  0.16423087  0.16385846 0.15492060 0.15464129 0.1456103
+[5,]  0.1728307  0.16373600  0.16337221 0.15464129 0.15436845 0.1455466
+[6,]  0.1498600  0.14773516  0.14765017 0.14561032 0.14554658 0.1434855
+[7,] -0.1106326 -0.03371767 -0.03064107 0.04319731 0.04550476 0.1201123
+            [,7]
+[1,] -0.11063264
+[2,] -0.03371767
+[3,] -0.03064107
+[4,]  0.04319731
+[5,]  0.04550476
+[6,]  0.12011229
+[7,]  0.96617702</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show that h_ii = sum(h_ij^2)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sum of all the squared values in row 1</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(H[<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>] <span class="sc">^</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2209034</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the h_ii element in row 1</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>H[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2209034</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the hat-values</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2209034 0.1807266 0.1794184 0.1549206 0.1543684 0.1434855 0.9661770</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["x"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["h_ii"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1.00","2":"2.0","3":"0.2209034"},{"1":"2.00","2":"1.8","3":"0.1807266"},{"1":"2.04","2":"2.9","3":"0.1794184"},{"1":"3.00","2":"2.2","3":"0.1549206"},{"1":"3.03","2":"3.6","3":"0.1543684"},{"1":"4.00","2":"3.0","3":"0.1434855"},{"1":"15.00","2":"7.0","3":"0.9661770"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>From these values we can see that the first six observations have pretty similar hat-values while the 7th observation (the extreme observation) has a large hat value compared to the others. This is reasonably easy to see when there are only seven observations, but becomes difficult to identify when looking at the hat-values in larger data sets. One tool for identifying large hat-values is to create an <em>index plot</em> of the leverage values. An index plot simply graphs some measure (in this case the hat-values) versus the case value of each observation. Below is the syntax and resulting index plot of the hat-values.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data to plot from</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">case =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">h_ii =</span> <span class="fu">diag</span>(H)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View d</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+
+<script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["case"],"name":[1],"type":["int"],"align":["right"]},{"label":["h_ii"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.2209034"},{"1":"2","2":"0.1807266"},{"1":"3","2":"0.1794184"},{"1":"4","2":"0.1549206"},{"1":"5","2":"0.1543684"},{"1":"6","2":"0.1434855"},{"1":"7","2":"0.9661770"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Index plot of the leverage values for the 7 cases displayed in Panel (b).</p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create index plot</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> d, <span class="fu">aes</span>(<span class="at">x =</span> case, <span class="at">y =</span> h_ii)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Observation number"</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Leverage value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="03-regression-diagnostics-2023_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p></p><figcaption class="figure-caption">Index plot of the leverage values for the 7 cases displayed in Panel (b).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From this plot, it is easy to spot unusually high leverage values.</p>
+<p><br></p>
+<p>How big does an observation’s hat value</p>
+<p>We identify extreme observations in the <em>x</em>-direction as having <em>high leverage</em>.</p>
+</section>
+<section id="regression-outliers" class="level1">
+<h1>Regression Outliers</h1>
+<p>A regression outlier is an observation that has an unusual outcome value given its predictor values; that is, it has a large residual in the regression model.</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>When there is more than one predictor, leverage is measure of how far away an observation is from the centroid of the predictor space.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

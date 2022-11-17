@@ -1,0 +1,17 @@
+knitr
+kableExtra
+rmdformats
+broom
+carData
+car
+corrr
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+patchwork

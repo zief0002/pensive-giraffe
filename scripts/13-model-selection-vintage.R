@@ -3,6 +3,7 @@
 ##################################################
 
 library(car)
+library(corrr)
 library(ggrepel)
 library(olsrr)
 library(tidyverse)
@@ -10,7 +11,7 @@ library(tidyverse)
 
 
 ##################################################
-### Import and prepare dataa
+### Import and prepare data
 ##################################################
 
 # Import and view data

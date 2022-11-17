@@ -1,5 +1,5 @@
 ---
-title: "`r paste(emo::ji('memo'), 'Biased Estimation: Ridge Regression')`"
+title: "📝 Biased Estimation: Ridge Regression"
 format:
   html:
     code-copy: true
@@ -301,7 +301,7 @@ ridge_trace
 ggplot(data = ridge_trace, aes(x = lambda, y = estimate)) +
   geom_line(aes(group = term, color = term)) +
   theme_bw() +
-  xlab("d value") +
+  xlab(expression(lambda)) +
   ylab("Coefficient estimate") +
   ggsci::scale_color_d3(name = "Predictor")
 ```
@@ -455,7 +455,7 @@ ggplot(data = ridge_trace, aes(x = lambda, y = estimate)) +
   geom_line(aes(group = term, color = term)) +
   geom_vline(xintercept = 21.77, linetype = "dotted") +
   theme_bw() +
-  xlab("d value") +
+  xlab(expression(lambda)) +
   ylab("Coefficient estimate") +
   ggsci::scale_color_d3(name = "Predictor")
 ```

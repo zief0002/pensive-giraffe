@@ -1,5 +1,5 @@
 ---
-title: "`r paste(emo::ji('memo'), 'Regression Diagnostics')`"
+title: "📝 Regression Diagnostics"
 subtitle: "Identifying Extreme Observations"
 format:
   html:
@@ -19,7 +19,7 @@ csl: '../assets/apa-single-spaced.csl'
 source("../assets/notes-setup.R")
 ```
 
-In this set of notes, we will give a brief introduction to empirical diagnostics to detect extreme observations. We will use the [contracption.csv](https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv) data to evaluate the effect of fermale education level on contraception rates.
+In this set of notes, we will give a brief introduction to empirical diagnostics to detect extreme observations. We will use the [contraception.csv](https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv) data to evaluate the effect of female education level on contraception rates.
 
 - [[CSV]](https://raw.githubusercontent.com/zief0002/pensive-giraffe/main/data/contraception.csv)
 - [[Codebook]](../codebooks/contraception.html)
@@ -70,7 +70,7 @@ ggplot(data = contraception, aes(x = educ_female, y = contraceptive, color = gni
   xlab("Female education level") +
   ylab("Contraceptive rate") +
   ggsci::scale_color_d3() +
-  guides(color = FALSE)
+  guides(color = "none")
 ```
 
 This plot suggests that the effect of female education level may differ for low and high wealth countries. This suggests that we may want to fit an intewraction model.
@@ -126,13 +126,14 @@ In a regression analysis, there are several ways in which an observation may be 
 
 ```{r}
 #| echo: false
+#| cache: true
 #| fig-width: 12
 #| fig-height: 4
 #| out-width: "100%"
 #| fig-cap: "Three different ways in which an observation may be extreme. The greenish observation is the extreme observation. The regression line is also displayed for the observations."
 
 data_01 = data.frame(
-  x= c(1, 2, 3, 4),
+  x = c(1, 2, 3, 4),
   y = c(2, 3, 4, 5)
 )
 
@@ -142,6 +143,10 @@ data_02 = data.frame(
   y = c(2, 1.8, 2.9, 2.2, 3.6, 3)
 )
 
+data_03 = data.frame(
+  x = c(1, 5.3, 2.04, 3.0, 5.50, 4),
+  y = c(2, 2.8, 2.90, 2.2, 2.60, 3)
+)
 
 # Large residual, low leverage
 p1 = ggplot(data = data_01, aes(x = x, y = y)) +
@@ -168,8 +173,8 @@ p2 = ggplot(data = data_02, aes(x = x, y = y)) +
 
 
 # Large residual, high leverage
-p3 = ggplot(data = data_01, aes(x = x, y = y)) +
-  geom_abline(intercept = -1.474 , slope = 2.072) +
+p3 = ggplot(data = data_03, aes(x = x, y = y)) +
+  geom_abline(intercept = -2.758 , slope = 1.770) +
   #geom_abline(intercept = 1, slope = 1, linetype = "dotted") +
   geom_point(shape = 21, color = "black", fill = "#17becf", size = 4) +
   geom_point(x = 9, y = 18, shape = 22, color = "black", fill = "#bcbd22", size = 4) +
@@ -184,56 +189,264 @@ p1 | p2 | p3
 
 In Panel (a), the extreme observation has a large residual, but it's *x*-value is similar to the *x*-values of the other observations. In Panel (b), the extreme observation has a large *x*-value relative to the other observations' *x*-values, but it does not have a large residual. In Panel (c), the extreme observation has both a large *x*-value relative to the other observations' *x*-values, and a large residual.
 
-With extreme observations, we worry about whether the regression cioefficients, and thus the line, will be impacted. You can see how the regression line changes for each of these three types of outliers in the plot below.
+When an observation has a large residual relative to the other observations we call it a *regression outlier*. That is, a regression outlier has an unusual outcome value given its predictor values. As such, we might identify the extreme observation in Panels (a) and (c) as regression outliers, while the extreme observations in Panel (b) would likely not be identified as a regression outlier. We identify extreme observations in the *x*-direction as having *high leverage*. Leverage is simply a measure of how far away an observation is from from the mean value in the predictor space. So the extreme observations in Panels (b) and (c) would have high leverage, whereas the extreme observation in Panel (a) would have low leverage.
+
+
+With extreme observations, we worry about whether the regression coefficients, and thus the line, will be impacted. You can see how the regression line changes for each of these three types of extreme observation in the plot below.
 
 ```{r}
 #| echo: false
 #| fig-width: 12
 #| fig-height: 4
 #| out-width: "100%"
-#| fig-cap: "Three different ways in which an observation may be extreme. The greenish observation is the extreme observation. The regression line is also displayed for the observations."
+#| fig-cap: "Three different ways in which an observation may be extreme. The greenish observation is the extreme observation. The regression line is also displayed for the observations. The animation shows how the regression line changes as a result of removing the extreme observation."
+# Create data for animations
+data_01 = data.frame(
+  x = c(1, 2, 3, 4, 2.6, 1, 2, 3, 4),
+  y = c(2, 3, 4, 5, 7, 2, 3, 4, 5),
+  t = c(rep(1, 5), rep(2, 4)),
+  outlier = c(rep("No", 4), "Yes", rep("No", 4))
+)
 
+data_02 = data.frame(
+  x = c(1, 2.0, 2.04, 3.0, 3.03, 4, 15, 1, 2.0, 2.04, 3.0, 3.03, 4),
+  y = c(2, 1.8, 2.90, 2.2, 3.60, 3, 7, 2, 1.8, 2.90, 2.2, 3.60, 3),
+  t = c(rep(1, 7), rep(2, 6)),
+  outlier = c(rep("No", 6), "Yes", rep("No", 6))
+)
+
+data_03 = data.frame(
+  x = c(1, 5.3, 2.04, 3.0, 5.50, 4, 9,  1, 5.3, 2.04, 3.0, 5.50, 4),
+  y = c(2, 2.8, 2.90, 2.2, 2.60, 3, 18, 2, 2.8, 2.90, 2.2, 2.60, 3),
+  t = c(rep(1, 7), rep(2, 6)),
+  outlier = c(rep("No", 6), "Yes", rep("No", 6))
+)
+
+# Load package
+library(gganimate)
+library(magick)
 
 # Large residual, low leverage
 p1 = ggplot(data = data_01, aes(x = x, y = y)) +
-  geom_abline(intercept = 1.543, slope = 1.054) +
-  #geom_abline(intercept = 1, slope = 1, linetype = "dotted") +
-  geom_point(shape = 21, color = "black", fill = "#17becf", size = 4) +
-  geom_point(x = 2.6, y = 7, shape = 22, color = "black", fill = "#bcbd22", size = 4) +
+  geom_point(aes(fill = outlier, shape = outlier), size = 4, color = "black") +
+  geom_smooth(method = "lm", se = FALSE, color = "black", fullrange = TRUE, size = 1, weight = 1) +
   theme_bw() +
   scale_x_continuous(name = "x", limits = c(0, 6), breaks = NULL) +
   scale_y_continuous(name = "y", limits = c(0, 10), breaks = NULL) +
-  ggtitle("(a)")
+  scale_fill_manual(values = c("No" = "#17becf", "Yes" = "#bcbd22"), guide = "none") +
+  scale_shape_manual(values = c("No" = 21, "Yes" = 22), guide = "none") +
+  ggtitle("(a)") +
+   transition_states(
+    t,
+    transition_length = 2,
+    state_length = 1
+  ) +
+  exit_fade() +
+  enter_fade()
 
 
 # Small residual, high leverage
 p2 = ggplot(data = data_02, aes(x = x, y = y)) +
-  geom_abline(intercept = 1.6904  , slope = 0.3547  ) +
-  #geom_abline(intercept = 1.6260, slope = 0.3812, linetype = "dotted") +
-  geom_point(shape = 21, color = "black", fill = "#17becf", size = 4) +
-  geom_point(x = 15, y = 7, shape = 22, color = "black", fill = "#bcbd22", size = 4) +
+  geom_point(aes(fill = outlier, shape = outlier), size = 4, color = "black") +
+  geom_smooth(method = "lm", se = FALSE, color = "black", fullrange = TRUE, size = 1, weight = 1) +
   theme_bw() +
   scale_x_continuous(name = "x", limits = c(0, 20), breaks = NULL) +
   scale_y_continuous(name = "y", limits = c(0, 15), breaks = NULL) +
-  ggtitle("(b)")
-
+  scale_fill_manual(values = c("No" = "#17becf", "Yes" = "#bcbd22"), guide = "none") +
+  scale_shape_manual(values = c("No" = 21, "Yes" = 22), guide = "none") +
+  ggtitle("(a)") +
+   transition_states(
+    t,
+    transition_length = 2,
+    state_length = 1
+  ) +
+  exit_fade() +
+  enter_fade()
 
 # Large residual, high leverage
-p3 = ggplot(data = data_01, aes(x = x, y = y)) +
-  geom_abline(intercept = -1.474 , slope = 2.072) +
-  #geom_abline(intercept = 1, slope = 1, linetype = "dotted") +
-  geom_point(shape = 21, color = "black", fill = "#17becf", size = 4) +
-  geom_point(x = 9, y = 18, shape = 22, color = "black", fill = "#bcbd22", size = 4) +
+p3 = ggplot(data = data_03, aes(x = x, y = y)) +
+  geom_point(aes(fill = outlier, shape = outlier), size = 4, color = "black") +
+  geom_smooth(method = "lm", se = FALSE, color = "black", fullrange = TRUE, size = 1, weight = 1) +
   theme_bw() +
   scale_x_continuous(name = "x", limits = c(0, 10), breaks = NULL) +
   scale_y_continuous(name = "y", limits = c(0, 20), breaks = NULL) +
-  ggtitle("(c)")
+  scale_fill_manual(values = c("No" = "#17becf", "Yes" = "#bcbd22"), guide = "none") +
+  scale_shape_manual(values = c("No" = 21, "Yes" = 22), guide = "none") +
+  ggtitle("(a)") +
+   transition_states(
+    t,
+    transition_length = 2,
+    state_length = 1
+  ) +
+  exit_fade() +
+  enter_fade()
+
 
 # Layout
-p1 | p2 | p3
+p1_gif <- animate(p1, width = 240, height = 240)
+p2_gif <- animate(p2, width = 240, height = 240)
+p3_gif <- animate(p3, width = 240, height = 240)
+
+p1_mgif <- image_read(p1_gif)
+p2_mgif <- image_read(p2_gif)
+p3_mgif <- image_read(p3_gif)
+
+new_gif <- image_append(c(p1_mgif[1], p2_mgif[1], p3_mgif[1]))
+
+for(i in 2:68){
+  combined <- image_append(c(p1_mgif[i], p2_mgif[i], p3_mgif[i]))
+  new_gif <- c(new_gif, combined)
+}
+
+new_gif
+```
+
+In Panels (a) and (b) removing the extreme observation did not have much of an effect on the regression line. In contrast, removing the extreme observation from Panel (c) resulted in a big change in the regression line. We would say that the extreme observation in Panel (c) is an *influential* observation---it influenced the location of the regression line (i.e., it influenced the coefficients). The extreme observations in Panels (a) and (b), on the other hand, are not influential observations. Importantly, observations can be extreme without impacting the regression coefficients. It is the influential observations that are problematic, since they can have a large impact on understanding the effects of the different predictors.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Properties of the extreme observations in terms of whether they are a regression outlier, the amount of leverage, and whether they influence the regression coefficients."
+
+data.frame(
+  Panel = c("(a)", "(b)", "(c)"),
+  Out = c("Yes", "No", "Yes"),
+  Lev = c("Low", "High", "High"),
+  Infl = c("No", "No", "Yes")
+) |>
+  kable(
+    format = "html",
+    col.names = c("Panel", "Regression Outlier", "Leverage", "Influential"),
+    align = "l"
+    ) |>
+  kable_classic()
 ```
 
 
-# 
+From this table, we can see that it is the combination of leverage with being a regression outlier that produces influence on the regression coefficients. Heuristically,
+
+$$
+\mathrm{Influence} = \mathrm{Leverage} \times \mathrm{Outlyingness}
+$$
+
+In the next sections, we will look at different measures used by statisticians and applied scientists to quantify these properties for the observations in a data set.
+
+<br />
+
+
+# Measuring Leverage
+
+Leverage is simply a measure of how far away an observation is from from the mean value in the predictor space.^[When there is more than one predictor, leverage is measure of how far away an observation is from the centroid of the predictor space.] To measure the leverage of an observation, we compute $h_{ii}, which is referred to as a *hat-value*. The hat-values are the diagonal elements of the **H** matrix where,
+
+$$
+\mathbf{H} = \mathbf{X}(\mathbf{X}^\intercal\mathbf{X})^{-1}\mathbf{X}^\intercal
+$$
+
+Recall that this matrix was referred to as the hat-matrix since we could express the predicted values ($\hat{y}_i$) as a function of the hat-matrix, namely,
+
+$$
+\hat{\mathbf{Y}} = \mathbf{HY}
+$$
+Writing this out,
+
+$$
+\begin{bmatrix} \hat{y}_1 \\ \hat{y}_2 \\\hat{y}_3 \\ \vdots \\ \hat{y}_n \end{bmatrix} = \begin{bmatrix} \hat{h}_{11} & \hat{h}_{12} & \hat{h}_{13} & \ldots & \hat{h}_{1n}\\ \hat{h}_{21} & \hat{h}_{22} & \hat{h}_{23} & \ldots & \hat{h}_{2n} \\ \hat{h}_{31} & \hat{h}_{32} & \hat{h}_{33} & \ldots & \hat{h}_{3n} \\ \vdots \\ \hat{h}_{n1} & \hat{h}_{n2} & \hat{h}_{n3} & \ldots & \hat{h}_{nn} \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ \vdots \\ y_n \end{bmatrix}
+$$
+
+This means we can compute the fitted value for the *i*th observation, $\hat{y}_i$, as:
+
+$$
+\hat{y}_i = h_{i1}(y_1) + h_{i2}(y_2) + h_{i3}(y_3) + \ldots + h_{in}(y_n)
+$$
+
+Each fitted value is a weighted combination of the outcome values, where the weights are the $h_{ij}$ values. That is, the weight is a measure of how much each outcome value is contributing to the fitted value. For example if $h_{ij}$ is large, it would indicate that $y_i$ has a large impact on the value of $\hat{y}_i$. It turns out that mathematically, 
+
+$$
+h_{ii} = \sum_{j=1}^n h_{ij}^2
+$$
+That is, the values on the diagonal of the hat-matrix (the hat-values) are a summary of the contribution of all the outcome values on $y_i$. Because of this, we can use $h_{ii}$ as a measure of leverage for the *i*th observation. Below, we the data from the observations used in the earlier Panel (b) to compute leverage values.
+
+
+```{r}
+#| echo: false
+
+data.frame(
+  x = c(1, 2.0, 2.04, 3.0, 3.03, 4, 15),
+  y = c(2, 1.8, 2.90, 2.2, 3.60, 3, 7)
+)
+```
+
+
+```{r}
+# Create X-matrix
+X = matrix(
+  data = c(rep(1, 7), 1, 2.0, 2.04, 3.0, 3.03, 4, 15),
+  nrow = 7
+)
+
+# Compute and view H-matrix
+H = X %*% solve(t(X) %*% X) %*% t(X)
+H
+
+# Show that h_ii = sum(h_ij^2)
+# Compute sum of all the squared values in row 1
+sum(H[1, 1:7] ^ 2)
+
+# Find the h_ii element in row 1
+H[1, 1]
+
+# Extract the hat-values
+diag(H)
+```
+
+```{r}
+#| echo: false
+
+data.frame(
+  x = c(1, 2.0, 2.04, 3.0, 3.03, 4, 15),
+  y = c(2, 1.8, 2.90, 2.2, 3.60, 3, 7),
+  h_ii = diag(H)
+)
+```
+
+From these values we can see that the first six observations have pretty similar hat-values while the 7th observation (the extreme observation) has a large hat value compared to the others. This is reasonably easy to see when there are only seven observations, but becomes difficult to identify when looking at the hat-values in larger data sets. One tool for identifying large hat-values is to create an *index plot* of the leverage values. An index plot simply graphs some measure (in this case the hat-values) versus the case value of each observation. Below is the syntax and resulting index plot of the hat-values.
+
+```{r}
+#| fig-cap: "Index plot of the leverage values for the 7 cases displayed in Panel (b)."
+# Create data to plot from
+d = data.frame(
+  case = 1:7,
+  h_ii = diag(H)
+)
+
+# View d
+d
+
+# Create index plot
+ggplot(data = d, aes(x = case, y = h_ii)) +
+  geom_point(size = 4) +
+  theme_bw() +
+  xlab("Observation number") +
+  ylab("Leverage value")
+```
+
+From this plot, it is easy to spot unusually high leverage values.
+
+<br />
+
+
+
+
+How big does an observation's hat value
+
+
+We identify extreme observations in the *x*-direction as having *high leverage*. 
+
+
+
+
+# Regression Outliers
+
+A regression outlier is an observation that has an unusual outcome value given its predictor values; that is, it has a large residual in the regression model. 
+
 
 
