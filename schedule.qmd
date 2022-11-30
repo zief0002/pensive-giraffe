@@ -266,11 +266,11 @@ The calendar below lists the tentative course topics. The dates listed are subje
 </td>
 </tr>
 
-<!-- Unit 05: MODEL SELECTION -->
+<!-- Unit 06: MODEL SELECTION -->
 
 
 <tr>
-<td colspan="5"><b>Unit 05: Model Selection</b></td>
+<td colspan="5"><b>Unit 06: Model Selection</b></td>
 </tr>
 
 <tr>
@@ -287,24 +287,20 @@ The calendar below lists the tentative course topics. The dates listed are subje
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
 <td>Nov. 17</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td align="center" style="vertical-align:middle;">
   <a class="my-link" href="readings/12-model-selection.html"><span class="fa fa-book"></span></a>
 </td>
-<td style="vertical-align:middle;" rowspan="2">Model Selection: The 'Vintage' Methods</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td style="vertical-align:middle;">Model Selection: The 'Vintage' Methods</td>
+<td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="worksheets/13-model-selection.pdf"><span class="fas fa-link"></span></a>
 </td>
 </tr>
 
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Nov. 22</td>
-</tr>
 
 
 <tr>
 <td align="center" style="vertical-align:middle;" >&nbsp;</td>
-<td>Nov. 29</td>
+<td>Nov. 22</td>
 <td align="center" style="vertical-align:middle;" rowspan="2">
   <a class="my-link" href="readings/13-cross-validation.html"><span class="fa fa-book"></span></a>
 </td>
@@ -316,51 +312,31 @@ The calendar below lists the tentative course topics. The dates listed are subje
 
 <tr>
 <td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Dec. 01</td>
+<td>Nov. 29</td>
 </tr>
 
 
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Oct. 18</td> -->
-<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   <a class="my-link" href="readings/08-diagnosing-collinearity.html"><span class="fa fa-book"></span></a> -->
-<!-- </td> -->
-<!-- <td style="vertical-align:middle;" rowspan="2">Diagnosing Collinearity</td> -->
-<!-- <td align="center" style="vertical-align:middle;" rowspan="2"> -->
-<!--   <a class = "my-link" href="notes/07-diagnosing-collinearity.html"><span class="fas fa-link"></span></a> -->
-<!-- </td> -->
-<!-- </tr> -->
 
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Oct. 20</td> -->
-<!-- </tr> -->
+<!-- Unit 07:PATH ANALYSIS -->
 
-
-
-
-
-<!-- Unit 06:PATH ANALYSIS -->
-
-<!-- <tr> -->
-<!-- <td colspan="5"><b>Unit 06: Path Analysis</b></td> -->
-<!-- </tr> -->
+<tr>
+<td colspan="5"><b>Unit 07: Path Analysis</b></td>
+</tr>
 
 <!-- CUT THIS: Add to READING  -->
 
 
-<!-- <tr> -->
-<!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
-<!-- <td>Dec. 01</td> -->
-<!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <a class="my-link" href="readings/14-regression-from-summary-measures.html"><span class="fa fa-book"></span></a> -->
-<!-- </td> -->
-<!-- <td style="vertical-align:middle;">Regression from Summary Measures</td> -->
-<!-- <td align="center" style="vertical-align:middle;"> -->
-<!--   <a class = "my-link" href="posts/2021-11-22-notes-regression-from-summary-measures"><span class="fas fa-link"></span></a> -->
-<!-- </td> -->
-<!-- </tr> -->
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Dec. 01</td>
+<td align="center" style="vertical-align:middle;">
+  <a class="my-link" href="readings/14-regression-from-summary-measures.html"><span class="fa fa-book"></span></a>
+</td>
+<td style="vertical-align:middle;">Regression from Summary Measures</td>
+<td align="center" style="vertical-align:middle;">
+  <a class = "my-link" href="notes/15-regression-from-summary-measures.html"><span class="fas fa-link"></span></a>
+</td>
+</tr>
 
 
 

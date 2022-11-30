@@ -88,26 +88,29 @@ cv_mse_i = function(case_index){
   lm.2 = lm(life_expectancy ~ -1 + income + population,                       data = train)
   lm.3 = lm(life_expectancy ~ -1 + income + population + illiteracy,          data = train)
   lm.4 = lm(life_expectancy ~ -1 + income + population + illiteracy + murder, data = train)
+  lm.5 = lm(life_expectancy ~ -1 + income + population + illiteracy + murder + frost, data = train)
   
   # Compute fitted value for validation data
   yhat_1 = predict(lm.1, newdata = validate)
   yhat_2 = predict(lm.2, newdata = validate)
   yhat_3 = predict(lm.3, newdata = validate)
   yhat_4 = predict(lm.4, newdata = validate)
+  yhat_5 = predict(lm.5, newdata = validate)
   
   # Compute CV-MSE_i for each model
   cv_mse_1 = (validate$life_expectancy - yhat_1) ^ 2
   cv_mse_2 = (validate$life_expectancy - yhat_2) ^ 2
   cv_mse_3 = (validate$life_expectancy - yhat_3) ^ 2
   cv_mse_4 = (validate$life_expectancy - yhat_4) ^ 2
+  cv_mse_5 = (validate$life_expectancy - yhat_5) ^ 2
   
   # Output a data frame
-  return(data.frame(cv_mse_1, cv_mse_2, cv_mse_3, cv_mse_4))
+  return(data.frame(cv_mse_1, cv_mse_2, cv_mse_3, cv_mse_4, cv_mse_5))
 }
 
 
 # Test function on Case 1
-cv_mse_i(1)
+cv_mse_i(2)
 
 
 # Apply cv_mse_i() function to all cases
@@ -127,6 +130,14 @@ my_cv_mse
 my_cv_mse %>%
   select(-case) %>%
   summarize_all(mean)
+
+
+
+
+augment(lm.3) |>
+  mutate(e_sq = (.resid / (1 - .hat))^2) |>
+  summarize( my_sum = sum(e_sq))
+
 
 
 
@@ -176,9 +187,17 @@ cv_4 = my_cv %>%
     k = 4
   )
 
+# Best 5-predictor model
+cv_5 = my_cv %>%
+  mutate(
+    model = map(train, ~lm(life_expectancy ~ 1 + income + population + illiteracy + murder + frost, data = .)),
+    MSE = map2_dbl(model, test, modelr::mse),
+    k = 5
+  )
+
 
 # Evaluate CV-MSE
-rbind(cv_1, cv_2, cv_3, cv_4) %>%
+rbind(cv_1, cv_2, cv_3, cv_4, cv_5) %>%
   group_by(k) %>%
   summarize(
     cv_mse = mean(MSE)
@@ -212,12 +231,14 @@ lm.1 = lm(life_expectancy ~ -1 + income,                                    data
 lm.2 = lm(life_expectancy ~ -1 + income + population,                       data = z_usa)
 lm.3 = lm(life_expectancy ~ -1 + income + population + illiteracy,          data = z_usa)
 lm.4 = lm(life_expectancy ~ -1 + income + population + illiteracy + murder, data = z_usa)
+lm.5 = lm(life_expectancy ~ -1 + income + population + illiteracy + murder + frost, data = z_usa)
 
 
 # Get AICc for all models
 aictab(
-  cand.set = list(lm.1, lm.2, lm.3, lm.4),
-  modnames = c("Best 1-Predictor", "Best 2-Predictor", "Best 3-Predictor", "Best 4-Predictor")
+  cand.set = list(lm.1, lm.2, lm.3, lm.4, lm.5),
+  modnames = c("Best 1-Predictor", "Best 2-Predictor", "Best 3-Predictor", 
+               "Best 4-Predictor", "Best 5-Predictor")
 )
 
 

@@ -51,7 +51,7 @@ Create a variable that indicates the number of years since 2000. Use this variab
 
 ### Use p-Value methods for Model Selection
 
-4. Fit a series of polynomial models starting with a linear model, and then models that also include higher order polynomials that allow you to evaluate your response to Question #3. Be sure to fit models up to degree $k+1$, where $k$ is the degree you hypothesized in Question #3. Analyze each of the polynomial terms (including the linear term) by using a series of nested *F*-tests. Report these results in an ANOVA table. (Note: If you need a refresher on fitting polynomial models and carrying out a nested *F*-test, see the [Polynomial Regression notes](https://zief0002.github.io/epsy-8252/#schedule) from EPsy 8252.)
+4. Fit a series of polynomial models starting with a linear model, and then models that also include higher order polynomials that allow you to evaluate your response to Question #3. Be sure to fit models up to degree $k+1$, where $k$ is the degree you hypothesized in Question #3. Analyze each of the polynomial terms (including the linear term) by using a series of nested *F*-tests. Report these results in an ANOVA table. (Note: If you need a refresher on fitting polynomial models and carrying out a nested *F*-test, see the [Polynomial Regression notes](https://zief0002.github.io/epsy-8252/#schedule) from EPsy 8252.) **(2pts.)**
 
 5. Based on these results, which polynomial model would you adopt? Explain.
 
@@ -137,7 +137,7 @@ For the third part of this assignment, you will again use the file the data prov
 
 17. Re-do Question #7 from Assignment 6, except this time, select the optimal $\lambda$ value based on using the AICc. How does this compare to the $\lambda$ value you found using the GCV metric from the previous question? (Show your syntax.)
 
-18. Compute the coefficients, standard errors based on the ridge regression model based on the $\lambda$ value you identified in Question #17. Also compute the *t*-values, and *p*-values for each coefficient. Report all of these in a coefficient table.
+18. Compute the coefficients, standard errors based on the ridge regression model based on the $\lambda$ value you identified in Question #17. Also compute the *t*-values, and *p*-values for each coefficient. Report all of these in a coefficient table. **(2pts.)**
 
 
 
