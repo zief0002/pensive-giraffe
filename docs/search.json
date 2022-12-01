@@ -634,7 +634,7 @@
     "href": "schedule.html",
     "title": "Calendar",
     "section": "",
-    "text": "The calendar below lists the tentative course topics. The dates listed are subject to change at the instructor’s discretion.\n\n\n\n\n\n\n\n\nDate\n\n\nReading\n\n\nTopic\n\n\nNotes\n\n\n\n\n\n\n \n\n\nSept. 06\n\n\n\n\n\nWelcome to EPsy 8264\n\n\n \n\n\n\n\n\nUnit 01: Mathematical and Computational Foundations\n\n\n\n\n \n\n\nSept. 08\n\n\n\n\n\nIntroduction to Matrix Algebra\n\n\n\n\n\n\n\n \n\n\nSept. 13\n\n\n\n\n \n\n\nSept. 15\n\n\n\n\n\nOLS Regression using Matrices and its Properties\n\n\n\n\n\n\n\n \n\n\nSept. 20\n\n\n\n\n\nUnit 02: Simulation\n\n\n\n\n \n\n\nSept. 22\n\n\n\n\n\nSimulating from the Regression Model\n\n\n\n\n\n\n\n \n\n\nSept. 27\n\n\n\n\n \n\n\nSept. 29\n\n\n\n\n\nUnit 03: Regression Diagnostics\n\n\n\n\n \n\n\nOct. 04\n\n\n\n\n\nRegression Diagnostics\n\n\n\n\n\n\n\n \n\n\nOct. 06\n\n\n\n\n\nUnit 04: Tools for Dealing with Heteroskedasticity\n\n\n\n\n \n\n\nOct. 11\n\n\n\n\n\nVariance Stabilizing Transformations\n\n\n\n\n\n\n\n \n\n\nOct. 13\n\n\n\n\n\nWeighted Least Squares (WLS) and Sandwich Estimation\n\n\n\n\n\n\n\n\nUnit 05: Diagnosing Collinearity and Tools for Dealing with It\n\n\n\n\n \n\n\nOct. 18\n\n\n\n\n\nDiagnosing Collinearity\n\n\n\n\n\n\n\n \n\n\nOct. 20\n\n\n\n\n \n\n\nOct. 25\n\n\n\n\n\nPrincipal Components Analysis via Spectral Decomposition\n\n\n\n\n\n\n\n \n\n\nOct. 27\n\n\n\n\n \n\n\nNov. 01\n\n\n\n\n\nPrincipal Components Analysis via Singular Value Decomposition\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\nNov. 03\n\n\n\n\n\nBiased Estimation: Ridge Regression\n\n\n\n\n\n\n\n \n\n\nNov. 08\n\n\n\n\nNO CLASS—Mental Health Break/Andy at a Conference\n\n\n\n\n\n\n \n\n\nNov. 10\n\n\n\n\n\nBiased Estimation: Ridge Regression  [Notes Updated 11-10-2022]\n\n\n\n\n\n\n\n\nUnit 06: Model Selection\n\n\n\n\n \n\n\nNov. 15\n\n\n\n\nModel Selection Activity\n\n\n\n\n\n\n\n \n\n\nNov. 17\n\n\n\n\n\nModel Selection: The ‘Vintage’ Methods\n\n\n\n\n\n\n\n \n\n\nNov. 22\n\n\n\n\n\nModel Selection: Cross-Validation Methods\n\n\n\n\n\n\n\n \n\n\nNov. 29\n\n\n\n\n\nUnit 07: Path Analysis\n\n\n\n\n\n \n\n\nDec. 01\n\n\n\n\n\nRegression from Summary Measures"
+    "text": "The calendar below lists the tentative course topics. The dates listed are subject to change at the instructor’s discretion.\n\n\n\n\n\n\n\n\nDate\n\n\nReading\n\n\nTopic\n\n\nNotes\n\n\n\n\n\n\n \n\n\nSept. 06\n\n\n\n\n\nWelcome to EPsy 8264\n\n\n \n\n\n\n\n\nUnit 01: Mathematical and Computational Foundations\n\n\n\n\n \n\n\nSept. 08\n\n\n\n\n\nIntroduction to Matrix Algebra\n\n\n\n\n\n\n\n \n\n\nSept. 13\n\n\n\n\n \n\n\nSept. 15\n\n\n\n\n\nOLS Regression using Matrices and its Properties\n\n\n\n\n\n\n\n \n\n\nSept. 20\n\n\n\n\n\nUnit 02: Simulation\n\n\n\n\n \n\n\nSept. 22\n\n\n\n\n\nSimulating from the Regression Model\n\n\n\n\n\n\n\n \n\n\nSept. 27\n\n\n\n\n \n\n\nSept. 29\n\n\n\n\n\nUnit 03: Regression Diagnostics\n\n\n\n\n \n\n\nOct. 04\n\n\n\n\n\nRegression Diagnostics\n\n\n\n\n\n\n\n \n\n\nOct. 06\n\n\n\n\n\nUnit 04: Tools for Dealing with Heteroskedasticity\n\n\n\n\n \n\n\nOct. 11\n\n\n\n\n\nVariance Stabilizing Transformations\n\n\n\n\n\n\n\n \n\n\nOct. 13\n\n\n\n\n\nWeighted Least Squares (WLS) and Sandwich Estimation\n\n\n\n\n\n\n\n\nUnit 05: Diagnosing Collinearity and Tools for Dealing with It\n\n\n\n\n \n\n\nOct. 18\n\n\n\n\n\nDiagnosing Collinearity\n\n\n\n\n\n\n\n \n\n\nOct. 20\n\n\n\n\n \n\n\nOct. 25\n\n\n\n\n\nPrincipal Components Analysis via Spectral Decomposition\n\n\n\n\n\n\n\n \n\n\nOct. 27\n\n\n\n\n \n\n\nNov. 01\n\n\n\n\n\nPrincipal Components Analysis via Singular Value Decomposition\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\nNov. 03\n\n\n\n\n\nBiased Estimation: Ridge Regression\n\n\n\n\n\n\n\n \n\n\nNov. 08\n\n\n\n\nNO CLASS—Mental Health Break/Andy at a Conference\n\n\n\n\n\n\n \n\n\nNov. 10\n\n\n\n\n\nBiased Estimation: Ridge Regression  [Notes Updated 11-10-2022]\n\n\n\n\n\n\n\n\nUnit 06: Model Selection\n\n\n\n\n \n\n\nNov. 15\n\n\n\n\nModel Selection Activity\n\n\n\n\n\n\n\n \n\n\nNov. 17\n\n\n\n\n\nModel Selection: The ‘Vintage’ Methods\n\n\n\n\n\n\n\n \n\n\nNov. 22\n\n\n\n\n\nModel Selection: Cross-Validation Methods\n\n\n\n\n\n\n\n \n\n\nNov. 29\n\n\n\n\n\nUnit 07: Path Analysis\n\n\n\n\n\n \n\n\nDec. 01\n\n\n\n\n\nRegression from Summary Measures\n\n\n\n\n\n\n\n \n\n\nDec. 06\n\n\n\n\nPath Analysis\n\n\n\n\n\n\n\n \n\n\nDec. 08\n\n\n\n\n\nModel Selection: Cross-Validation Methods\n\n\n\n\n\n\n\n \n\n\nDec. 13"
   },
   {
     "objectID": "worksheets/02-introduction-to-matrix-algebra.html",
@@ -1019,7 +1019,7 @@
     "href": "notes/16-path-analysis.html#a-little-more-about-cause-cntd.",
     "title": "📝 Path Analysis",
     "section": "A Little More About Cause (cntd.)",
-    "text": "A Little More About Cause (cntd.)\nInstead, cause is a probabilistic statement about the world. When we say smoking causes lung cancer what we mean, statistically, is that smoking increases the probability of developing lung cancer. Moreover, this increase probability is due to smoking, and not something else."
+    "text": "A Little More About Cause (cntd.)\nInstead, cause is a probabilistic statement about the world. When we say smoking causes lung cancer what we mean, statistically, is that smoking increases the probability of developing lung cancer.\n\nMoreover, this increased probability is due to smoking, and not something else."
   },
   {
     "objectID": "notes/16-path-analysis.html#requirements-for-cause",
@@ -1033,7 +1033,7 @@
     "href": "notes/16-path-analysis.html#including-time-precedence-in-the-path-diagram",
     "title": "📝 Path Analysis",
     "section": "Including Time Precedence in the Path Diagram",
-    "text": "Including Time Precedence in the Path Diagram\nTime precedence is often reflected in the orientation of the model. Variables that occur earlier in time are oriented further to the left side of the diagram than variables that occur later. In the smoking example, to be considered the cause for lung cancer, smoking has to occur prior to the onset of lung cancer."
+    "text": "Including Time Precedence in the Path Diagram\nTime precedence is often reflected in the orientation of the model. Variables that occur earlier in time are oriented further to the left side of the diagram than variables that occur later.\n\n\n\n\n\n\n\n\n\nIn the smoking example, to be considered the cause for lung cancer, smoking has to occur prior to the onset of lung cancer.1\nNote that the top–bottom orientation typically doesn’t mean anything—it is just used for aesthetics in the layout."
   },
   {
     "objectID": "notes/16-path-analysis.html#including-time-precedence-in-the-path-diagram-cntd.",
@@ -1062,5 +1062,40 @@
     "title": "📝 Path Analysis",
     "section": "Common Cause (cntd.)",
     "text": "Common Cause (cntd.)\nIn order to meet the third causal requirement, we need to include ALL common causes in the model. This requirement is the hardest to prove."
+  },
+  {
+    "objectID": "notes/16-path-analysis.html#reading-a-path-diagram-cntd.",
+    "href": "notes/16-path-analysis.html#reading-a-path-diagram-cntd.",
+    "title": "📝 Path Analysis",
+    "section": "Reading a Path Diagram (cntd.)",
+    "text": "Reading a Path Diagram (cntd.)"
+  },
+  {
+    "objectID": "notes/16-path-analysis.html#non-recursive-models",
+    "href": "notes/16-path-analysis.html#non-recursive-models",
+    "title": "📝 Path Analysis",
+    "section": "Non-Recursive Models",
+    "text": "Non-Recursive Models\nIn the path diagrams we have looked at so far, the causal paths have gone in only one direction; there is a distinct cause and effect. The error terms on the effect variables are also all uncorrelated. These are called recursive models. It is possible for variables to effect each other (e.g., predator–prey relationships), or for the error terms to be correlated. This is called a non-recursive model."
+  },
+  {
+    "objectID": "notes/16-path-analysis.html#non-recursive-models-cntd.",
+    "href": "notes/16-path-analysis.html#non-recursive-models-cntd.",
+    "title": "📝 Path Analysis",
+    "section": "Non-Recursive Models (cntd.)",
+    "text": "Non-Recursive Models (cntd.)\nThe problem with estimating the path coefficients is that the non-recursive model is under-identified. In our predator–prey model, we need to estimate four path coefficients, but only have three correlations (equations) from which to do so. We can’t solve this without adding additional constraints! This means we cannot estimate the path coefficients using regression.\n\n\n\n\n\n\n\n\n\n\n\n\n\\[\n\\begin{split}\nr_{\\mathrm{H,W}} &= p1 + p2(p4) \\\\[1em]\nr_{\\mathrm{H,R}} &= p2 + p1(p3) \\\\[1em]\nr_{\\mathrm{H,W}} &= p3 + p4 + p1(p2)\n\\end{split}\n\\]"
+  },
+  {
+    "objectID": "notes/16-path-analysis.html#under-identified-models",
+    "href": "notes/16-path-analysis.html#under-identified-models",
+    "title": "📝 Path Analysis",
+    "section": "Under-Identified Models",
+    "text": "Under-Identified Models\nThe problem with estimating the path coefficients in the non-recursive model is it is under-identified. In our predator–prey model, we need to estimate four path coefficients, but only have three correlations (equations) from which to do so. We can’t solve this without adding additional constraints!\n\n\n\n\n\n\n\n\n\n\n\n\n\\[\n\\begin{split}\nr_{\\mathrm{H,W}} &= p1 + p2(p4) \\\\[1em]\nr_{\\mathrm{H,R}} &= p2 + p1(p3) \\\\[1em]\nr_{\\mathrm{H,W}} &= p3 + p4 + p1(p2)\n\\end{split}\n\\]"
+  },
+  {
+    "objectID": "notes/16-path-analysis.html#over-identified-models",
+    "href": "notes/16-path-analysis.html#over-identified-models",
+    "title": "📝 Path Analysis",
+    "section": "Over-Identified Models",
+    "text": "Over-Identified Models"
   }
 ]

@@ -9,7 +9,6 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.258">
 
-  <meta name="dcterms.date" content="2022-11-30">
   <title>EPsy 8264 - 📝 Path Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -397,7 +396,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">11/30/22</p>
+  <p class="date">12/1/22</p>
 </section>
 <section id="what-are-path-diagrams" class="slide level2">
 <h2>What are Path Diagrams?</h2>
@@ -484,6 +483,10 @@
 </ul></li>
 </ul>
 </section>
+<section id="reading-a-path-diagram-cntd." class="slide level2">
+<h2>Reading a Path Diagram (cntd.)</h2>
+
+<img data-src="../img/path-analysis-notes/10-symbols.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="two-example-path-diagrams" class="slide level2">
 <h2>Two Example Path Diagrams</h2>
 <div class="columns">
@@ -946,11 +949,13 @@ motivation ~ 0 + ability</code></pre>
 <h2>A Little More About Cause</h2>
 <p>What do we mean when we say “<em>X</em> causes <em>Y</em>”? Contrary to popular belief, we do not mean that changing <em>X</em> has a direct, and immediate change on <em>Y</em>. For example, it is now well known that smoking causes lung cancer.</p>
 
-<img data-src="../img/path-analysis-notes/09-smoking-cancer.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p>But, not everyone who smokes ends up getting lung cancer.</p>
+<img data-src="../img/path-analysis-notes/09-smoking-cancer.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p>But, not everyone who smokes ends up getting lung cancer.</p>
 </section>
 <section id="a-little-more-about-cause-cntd." class="slide level2">
 <h2>A Little More About Cause (cntd.)</h2>
-<p>Instead, cause is a probabilistic statement about the world. When we say smoking causes lung cancer what we mean, statistically, is that smoking increases the probability of developing lung cancer. Moreover, this increase probability is due to smoking, and not something else.</p>
+<p>Instead, cause is a probabilistic statement about the world. When we say smoking causes lung cancer what we mean, statistically, is that smoking increases the probability of developing lung cancer.</p>
+<p><br></p>
+<p>Moreover, this increased probability is due to smoking, and not something else.</p>
 </section>
 <section id="requirements-for-cause" class="slide level2">
 <h2>Requirements for Cause</h2>
@@ -963,9 +968,18 @@ motivation ~ 0 + ability</code></pre>
 </section>
 <section id="including-time-precedence-in-the-path-diagram" class="slide level2">
 <h2>Including Time Precedence in the Path Diagram</h2>
-<p>Time precedence is often reflected in the orientation of the model. Variables that occur earlier in time are oriented further to the left side of the diagram than variables that occur later. In the smoking example, to be considered the cause for lung cancer, smoking has to occur prior to the onset of lung cancer.</p>
-
-<img data-src="../img/path-analysis-notes/09-smoking-cancer.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<p>Time precedence is often reflected in the orientation of the model. Variables that occur earlier in time are oriented further to the left side of the diagram than variables that occur later.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/path-analysis-notes/09-smoking-cancer.png" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the smoking example, to be considered the cause for lung cancer, smoking has to occur prior to the onset of lung cancer.<sup>1</sup></p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Note that the top–bottom orientation typically doesn’t mean anything—it is just used for aesthetics in the layout.</p></li></ol></aside></section>
 <section id="including-time-precedence-in-the-path-diagram-cntd." class="slide level2">
 <h2>Including Time Precedence in the Path Diagram (cntd.)</h2>
 <p>In our path diagram relating academic ability and motivation to acheivement, academic ability is furthest to the left (it occurs earliest), followed by motivation, and then academic achievement.</p>
@@ -986,11 +1000,45 @@ motivation ~ 0 + ability</code></pre>
 <section id="common-cause-cntd.-1" class="slide level2">
 <h2>Common Cause (cntd.)</h2>
 <p>In order to meet the third causal requirement, we need to include ALL common causes in the model. This requirement is the hardest to prove.</p>
+</section>
+<section id="non-recursive-models" class="slide level2">
+<h2>Non-Recursive Models</h2>
+<p>In the path diagrams we have looked at so far, the causal paths have gone in only one direction; there is a distinct cause and effect. The error terms on the effect variables are also all uncorrelated. These are called <em>recursive models</em>. It is possible for variables to effect each other (e.g., predator–prey relationships), or for the error terms to be correlated. This is called a <em>non-recursive model</em>.</p>
+
+<img data-src="../img/path-analysis-notes/11-nonrecursive-model.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="under-identified-models" class="slide level2">
+<h2>Under-Identified Models</h2>
+<p>The problem with estimating the path coefficients in the non-recursive model is it is under-identified. In our predator–prey model, we need to estimate four path coefficients, but only have three correlations (equations) from which to do so. We can’t solve this without adding additional constraints!</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/path-analysis-notes/12-nonrecursive-model-paths.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{split}
+r_{\mathrm{H,W}} &amp;= p1 + p2(p4) \\[1em]
+r_{\mathrm{H,R}} &amp;= p2 + p1(p3) \\[1em]
+r_{\mathrm{H,W}} &amp;= p3 + p4 + p1(p2)
+\end{split}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="over-identified-models" class="slide level2">
+<h2>Over-Identified Models</h2>
 
 <div class="footer footer-default">
 
 </div>
 </section>
+
     </div>
   </div>
 

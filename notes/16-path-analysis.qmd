@@ -93,6 +93,17 @@ In a path diagram,
   - If the path has an arrowhead on only one side, it indicates a hypothesized causal relationship. The cause is in the direction of the arrow; that is, the hypothesized cause is at the butt end of the line, while the hypothesized effect is at the arrowhead side of the line.
 
 
+## Reading a Path Diagram (cntd.)
+
+
+```{r}
+#| echo: false
+#| out-width: "100%"
+include_graphics("../img/path-analysis-notes/10-symbols.png")
+```
+
+
+
 ## Two Example Path Diagrams
 
 :::: {.columns}
@@ -589,7 +600,7 @@ What do we mean when we say "*X* causes *Y*"? Contrary to popular belief, we do 
 
 ```{r}
 #| echo: false
-#| out-width: "100%"
+#| out-width: "60%"
 include_graphics("../img/path-analysis-notes/09-smoking-cancer.png")
 ```
 
@@ -598,7 +609,11 @@ But, not everyone who smokes ends up getting lung cancer.
 
 ## A Little More About Cause (cntd.)
 
-Instead, cause is a probabilistic statement about the world. When we say smoking causes lung cancer what we mean, statistically, is that smoking increases the probability of developing lung cancer. Moreover, this increase probability is due to smoking, and not something else.
+Instead, cause is a probabilistic statement about the world. When we say smoking causes lung cancer what we mean, statistically, is that smoking increases the probability of developing lung cancer. 
+
+<br />
+
+Moreover, this increased probability is due to smoking, and not something else.
 
 
 ## Requirements for Cause
@@ -612,13 +627,15 @@ There are three primary requirements for a causal relationship between *X* and *
 
 ## Including Time Precedence in the Path Diagram
 
-Time precedence is often reflected in the orientation of the model. Variables that occur earlier in time are oriented further to the left side of the diagram than variables that occur later. In the smoking example, to be considered the cause for lung cancer, smoking has to occur prior to the onset of lung cancer.
+Time precedence is often reflected in the orientation of the model. Variables that occur earlier in time are oriented further to the left side of the diagram than variables that occur later. 
 
 ```{r}
 #| echo: false
-#| out-width: "100%"
+#| out-width: "60%"
 include_graphics("../img/path-analysis-notes/09-smoking-cancer.png")
 ```
+
+In the smoking example, to be considered the cause for lung cancer, smoking has to occur prior to the onset of lung cancer.^[Note that the top--bottom orientation typically doesn't mean anything---it is just used for aesthetics in the layout.]
 
 
 ## Including Time Precedence in the Path Diagram (cntd.)
@@ -665,5 +682,47 @@ Once we include poverty as a common cause, the path coefficient between Head Sta
 In order to meet the third causal requirement, we need to include ALL common causes in the model. This requirement is the hardest to prove.
 
 
+## Non-Recursive Models
+
+In the path diagrams we have looked at so far, the causal paths have gone in only one direction; there is a distinct cause and effect. The error terms on the effect variables are also all uncorrelated. These are called *recursive models*. It is possible for variables to effect each other (e.g., predator--prey relationships), or for the error terms to be correlated. This is called a *non-recursive model*.
+
+```{r}
+#| echo: false
+#| out-width: "100%"
+include_graphics("../img/path-analysis-notes/11-nonrecursive-model.png")
+```
+
+
+## Under-Identified Models
+
+The problem with estimating the path coefficients in the non-recursive model is it is under-identified. In our predator--prey model, we need to estimate four path coefficients, but only have three correlations (equations) from which to do so. We can't solve this without adding additional constraints! 
+
+::::{.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| out-width: "100%"
+include_graphics("../img/path-analysis-notes/12-nonrecursive-model-paths.png")
+```
+:::
+
+
+::: {.column width="50%"}
+
+$$
+\begin{split}
+r_{\mathrm{H,W}} &= p1 + p2(p4) \\[1em]
+r_{\mathrm{H,R}} &= p2 + p1(p3) \\[1em]
+r_{\mathrm{H,W}} &= p3 + p4 + p1(p2)
+\end{split}
+$$
+
+:::
+
+::::
+
+
+## Over-Identified Models
 
 
