@@ -429,24 +429,178 @@ ggplot(data = d, aes(x = case, y = h_ii)) +
   ylab("Leverage value")
 ```
 
-From this plot, it is easy to spot unusually high leverage values.
+From this plot, it is easy to spot unusually high leverage values. 
 
 <br />
 
 
+## Identifying High Leverage Observations in the Contraception Example
+
+In practice, we can use the `augment()` function from the `{broom}` package to obtain the leverage values for each observation for a fitted model. These values are provided in the `.hat` column. Previously, we had assigned the augment output for `lm.1` to an object called `out_1`.
+
+```{r}
+# View augmented data
+out_1
+```
+
+Here, for example, we can see that the leverage value for the first observation is 0.0875. To determine which observations have high leverage, we will create an index plot of the leverage values.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "70%"
+# Add case number to the augmented data
+out_1 = out_1 |>
+  mutate(
+    case = row_number()
+    )
+
+# View augmented data
+out_1
+
+# Create index plot
+ggplot(data = out_1, aes(x = case, y = .hat)) +
+  geom_point(size = 4) +
+  theme_bw() +
+  xlab("Observation number") +
+  ylab("Leverage value")
+```
+
+While it seems we may be able to identify observations with high leverage in this plot, sometimes this can be difficult depending on the data. For example, the two highest observations seem like they probably have high leverage relative to the others, but what about the four observations with leverage values between 0.10 and 0.12? 
+
+One criterion that applied researchers use is that an observation has high leverage if:
+
+$$
+h_{ii} > \frac{2p}{n}
+$$
+
+where *p* is the trace of **H**, which also happens to be the sum of the $h_{ii}$ values. This implies that,
+
+$$
+\begin{split}
+h_{ii} &> \frac{2p}{n} \\[1em]
+&> \frac{2\sum h_{ii}}{n} \\[1em] 
+&> 2 \bar{h}
+\end{split}
+$$
+
+where $\bar{h}$ is the average leverage value. Thus, we are identifying observations with a leverage value greater than twice the average value, and those are the observations we are saying have high leverage. It is often useful to draw a horizontal line in the index plot at this value. Below we add in this line, and also plot the observations' case value rather than plotting points. This helps us identify the cases with high leverage.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "70%"
+#| fig-cap: "Index plot of the leverage values from Model 1. Observations are identified by their case value. The reddish-purple line demarcates observations with a leverage value greater than two times the average leverage value."
+# Compute cutoff
+cutoff = 2 * mean(out_1$.hat)
+cutoff
+
+# Create index plot
+ggplot(data = out_1, aes(x = case, y = .hat)) +
+  geom_text(aes(label = case)) +
+  geom_hline(yintercept = cutoff, color = "#cc79a7") +
+  theme_bw() +
+  xlab("Observation number") +
+  ylab("Leverage value")
+```
+
+Based on this criterion, there are several observations that have high leverage values in this model. Since these observations represent countries, and we have country names in the original data, we could also create this index plot using country names to label the observations instead of case numbers.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "70%"
+#| fig-cap: "Index plot of the leverage values from Model 1. Observations are identified by their country name. The reddish-purple line demarcates observations with a leverage value greater than two times the average leverage value."
+# Add country names to augmented data
+out_1 = out_1 |>
+  mutate(
+    country = contraception$country
+  )
+
+# View data
+out_1
+
+# Create index plot
+ggplot(data = out_1, aes(x = case, y = .hat)) +
+  geom_text(aes(label = country)) +
+  geom_hline(yintercept = cutoff, color = "#cc79a7") +
+  theme_bw() +
+  xlab("Observation number") +
+  ylab("Leverage value")
+```
 
 
-How big does an observation's hat value
+<br />
 
 
-We identify extreme observations in the *x*-direction as having *high leverage*. 
+# Measuring Outlyingness
+
+A regression outlier is an observation that has an unusual outcome value given its predictor values; that is, it has a large residual in the regression model. The residuals for each observation are provided in the `.resid` column of the `augment()` output. Unfortunately, because the residuals are in the same metric as the outcome variable (in our case contraception rates), it can be hard to judge what "large" is. One suggestion is to standardize the residuals so we can better evaluate which observations have large residuals.
+
+To standardize a residual, we divide each residual by its standard error (SE), where the SE of a residual is computed as:
+
+$$
+\mathrm{SE}(e_i) = \sqrt{s^2_e (1 - h_{ii})}
+$$
+and $s^2_e$ is the error variance estimated by the model and $h_{ii}$ is the *i*th observation's leverage value. Then, the standardized residual^[Because we are dividing by the standard error sometimes these are referred to as *internally studentized residuals* rather than standardized residuals.] for the *i*th observation is simply,
+
+$$
+e^*_i = \frac{e_i}{\sqrt{s^2_e (1 - h_{ii})}}
+$$
+To compute these values for the fitted contraception model, we obtain the estimated error variance by squaring the `sigma` value from the `glance()` output. Then we can compute the standardized residuals using the information in the `augment()` output.
+
+```{r}
+# Obtain estimate of error variance
+s2e = glance(lm.1)$sigma ^ 2
+s2e
+
+# Compute standardized residuals
+out_1 |>
+  mutate(
+    standardized_resid = .resid / (sqrt(s2e * (1 - .hat)))
+  )
+```
+
+Notice that these values are the same as those in the `.std.resid` column which is created from the `augment()` function. To evaluate which observations have a large standardized residual (and thus a large residual), we can create a plot of the standardized residuals versus the fitted values similar to that we created earlier to evaluate the model assumptions. 
+
+Since one of the assumptions of the regression model is that the residuals are normally distributed, we can make use of the empirical rule (which indicates that 95% of the residuals should be within two standard errors of the mean residual of zero) to identify observations with "high" values. Using this heuristic, we would say that an observation that has a standardized residual more than 2 SEs from zero is a regression outlier.^[If the sample size is large, it is better to use the heuristic that regression outliers have a standardized residual more than 3 SEs from zero.] Below we create the index plot of the standardized residuals, and add guides at $\pm2$ SEs.
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: "70%"
+#| fig-cap: "Plot of the standardized residuals versus the fitted values from Model 1. Observations are identified by their country names. The reddish-purple line demarcates observations with a standardized residual more than two standard errors from zero."
+# Create plot of standardized residuals versus
+ggplot(data = out_1, aes(x = .fitted, y = .std.resid)) +
+  geom_text(aes(label = country)) +
+  geom_hline(yintercept = 0) +
+  geom_hline(yintercept = c(-2, 2), color = "#cc79a7") +
+  theme_bw() +
+  xlab("Fitted values") +
+  ylab("Residuals")
+```
+
+<br />
 
 
+## Statistical Test for Identifying Observations with Large Residuals
+
+Some educational scientists evaluate whether a particular observation is a regression outlier, by using a hypothesis test to determine whether its residual differs statistically from 0. To do this, we can use a *t*-test where,
+
+$$
+t_i = \frac{e_i}{\mathrm{SE}(e_i)} 
+$$
+
+This is evaluated in a *t*-distribution with *df* equivalent to the residual degrees-of-freedom from the model. The *t*-value here looks a lot like the formula we used to compute the standardized residual. 
+
+Unfortunately, we cannot use the standardized residual here since the numerator and denominator are not independent (the term $s^2_e$ in the denominator is a function of $e_i$.). This would mean that the resulting statistic is not *t*-distributed. To fix this problem, we can compute an estimate of $s^2_e$ that is computed based on the regression deleting the *i*th observation. That is,
+
+$$
+t_i = \frac{e_i}{\sqrt{s^2_{e(-i)} (1 - h_{ii})}}
+$$
+To differentiate this change in the standard error, sometimes statisticians refer to this value as a *studentized residual* rather than a standardized residual.^[Studentized residuals are also sometimes referred to as: *deleted studentized residuals*, *externally studentized residuals*, and in some books and papers, even as *standardized residuals*. Ugh.] 
 
 
-# Regression Outliers
-
-A regression outlier is an observation that has an unusual outcome value given its predictor values; that is, it has a large residual in the regression model. 
 
 
 
