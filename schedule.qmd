@@ -354,27 +354,27 @@ The calendar below lists the tentative course topics. The dates listed are subje
 <tr>
 <td align="center" style="vertical-align:middle;" >&nbsp;</td>
 <td>Dec. 08</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td align="center" style="vertical-align:middle;">
   <!-- <a class="my-link" href="readings/13-cross-validation.html"><span class="fa fa-book"></span></a> -->
 </td>
-<td style="vertical-align:middle;" rowspan="2">Model Selection: Cross-Validation Methods</td>
-<td align="center" style="vertical-align:middle;" rowspan="2">
+<td style="vertical-align:middle;">More Path Models</td>
+<td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="notes/17-more-path-analysis.html"><span class="fas fa-link"></span></a>
 </td>
-</tr>
-
-<tr>
-<td align="center" style="vertical-align:middle;">&nbsp;</td>
-<td>Dec. 13</td>
 </tr>
 
 <!-- <tr> -->
 <!-- <td align="center" style="vertical-align:middle;">&nbsp;</td> -->
 <!-- <td>Dec. 13</td> -->
-<!-- <td align="center" style="vertical-align:middle;"></td> -->
-<!-- <td style="vertical-align:middle;">NO CLASS</td> -->
-<!-- <td align="center" style="vertical-align:middle;"></td> -->
 <!-- </tr> -->
+
+<tr>
+<td align="center" style="vertical-align:middle;">&nbsp;</td>
+<td>Dec. 13</td>
+<td align="center" style="vertical-align:middle;"></td>
+<td style="vertical-align:middle;">NO CLASS</td>
+<td align="center" style="vertical-align:middle;"></td>
+</tr>
 
 </tbody>
 </table>

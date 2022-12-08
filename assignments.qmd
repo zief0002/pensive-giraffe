@@ -78,7 +78,7 @@ Below are the due dates for the assignments, as well as links to each assignment
 </tr>
 
 <tr>
-<td>Assignment 08: *Path Analysis*</td>
+<td>Optional Assignment 08: *Path Analysis*</td>
 <td>Dec. 16</td>
 <td align="center" style="vertical-align:middle;">
   <a class = "my-link" href="assignments/assignment-08.html"><span class="fas fa-link"></span></a>
